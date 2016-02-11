@@ -130,6 +130,8 @@ int sort_name_conv(const char *name) {
     if (!strcmp(name, "n_seasons") || !strcmp(name, "c_n_seasons")) return 7;
 }
 */
+
+
 void insert_series(GSList *&list, series *sin) {
     cout << "**************************" << endl;
     cout << "dentro insert_series" << endl;
