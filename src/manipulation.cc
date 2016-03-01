@@ -37,10 +37,22 @@ const char *int2stat(int stat) {
     }
 }
 
-bool del(GSList *&list, GSList *tmp) {
-    list = g_slist_remove_link(list, tmp);
-    g_slist_free_1(tmp);
-    return true;
+gboolean del(GtkTreeModel *model,
+                   GtkTreePath *path,
+                   GtkTreeIter *iter,
+                   gpointer pseries){
+    //GSList** pList = (GSList **) plist;
+    //GSList* &list = *pList;
+    series *s = (series *) pseries;
+    char *name_searched = s->name;
+    gchararray name;
+
+    gtk_tree_model_get(model, iter, COL_NAME, &name, -1);
+    if(!strcmp(name_searched, name)){
+        GtkListStore *listStore = GTK_LIST_STORE(model);
+        gtk_list_store_remove(listStore, iter);
+    }
+    return FALSE;
 }
 
 series *data_to_struct(const gchararray name,
@@ -141,47 +153,44 @@ void insert_series(GSList *&list, series *sin) {
     s->genre << " " << s->status << " " << s->watched << endl;
 
     list = g_slist_append(list, s);
+    cout << ((series *)list->data)->name << endl;
+    cout << "**********" << endl;
 }
 
-GSList* search(GSList *list, GSList *l_found, const int selection, const char *label) {
-    GSList *tmp = NULL;
-    tmp = list;
-    if(l_found!=NULL){
-        g_slist_foreach(l_found, (GFunc)g_free, NULL);
-        g_slist_free(l_found);
-        l_found = NULL;
-    }
+GSList* search(GSList *&list, const int selection, const char *label) {
+    GSList *found = NULL;
 
     series *s = new series;
-    while (tmp != NULL) {
+    while (list != NULL) {
         if (selection == COL_NAME) {
-            if (!strcmp(((series *) tmp->data)->name, label)) {
-                cout << "controllo valore tmp->data->name:   ";
-                cout << ((series *) tmp->data)->name << endl;
-                s = (series *) tmp->data;
-                cout << s->name << endl;
-                insert_series(l_found, s);
-                g_slist_foreach(tmp, (GFunc)g_free, NULL);
-                g_slist_free(tmp);
-                cout << "test l_found name:  ";
-                cout << ((series*)(l_found->data))->name << endl;
-                return l_found;
+            if (!strcmp(((series *) list->data)->name, label)) {
+                //cout << "controllo valore tmp->data->name:   ";
+                //cout << ((series *) list->data)->name << endl;
+                s = (series *) list->data;
+                //cout << s->name << endl;
+                insert_series(found, s);
+                //g_slist_foreach(tmp, (GFunc)g_free, NULL);
+                //g_slist_free(tmp);
+                //cout << "test l_found name:  ";
+                //cout << ((series*)(l_found->data))->name << endl;
+                return found;
             }
         } else if(selection == COL_GEN){
-            if (!strcmp(((series *) tmp->data)->genre, label)){
-                cout << "controllo valore tmp->data->genre:   ";
-                cout << ((series *) tmp->data)->genre << endl;
-                s = (series *) tmp->data;
-                l_found = g_slist_append(l_found, s);
-                cout << "test l_found genre:  ";
-                cout << ((series*)(l_found->data))->genre << endl;
+            if (!strcmp(((series *) list->data)->genre, label)){
+                //cout << "controllo valore tmp->data->genre:   ";
+                //cout << ((series *) tmp->data)->genre << endl;
+                s = (series *) list->data;
+                insert_series(found, s);
+                //cout << "test l_found genre:  ";
+                //cout << ((series*)(found->data))->genre << endl;
             }
         }
-        tmp = g_slist_next(tmp);
+        list = g_slist_next(list);
     }
-    g_slist_foreach(tmp, (GFunc)g_free, NULL);
-    g_slist_free(tmp);
-    return l_found;
+    g_slist_foreach(list, (GFunc)g_free, NULL);
+    g_slist_free(list);
+    list = NULL;
+    return found;
 }
 
 /*

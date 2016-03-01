@@ -28,7 +28,7 @@ int sort_menu_conv(const char *);
 
 int search_conv(const char *label);
 
-GSList * search(GSList*, GSList*, int, const char*);
+GSList* search(GSList *&l_found, const int selection, const char *label);
 
 int sort_name_conv(const char *name);
 
@@ -38,6 +38,9 @@ const gchararray watched_int2text(int);
 
 bool edit(GSList *&list, const char name[], GSList *tmp, int pick, int status);
 
-bool del(GSList *&list, GSList *tmp);
+gboolean del(GtkTreeModel *model,
+             GtkTreePath *path,
+             GtkTreeIter *iter,
+             gpointer data);
 
 void pure_char_string_conv(const char name[], char new_name[]);

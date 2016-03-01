@@ -34,6 +34,11 @@ enum tm_columns {
     COL_WATCHED
 };
 
+enum edit_mode {
+    DEL_MODE = 0,
+    EDIT_MODE
+};
+
 struct series {
     char name[LENGTH];
     char last_episode[LENGTH];

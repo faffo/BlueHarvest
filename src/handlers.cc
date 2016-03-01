@@ -19,6 +19,7 @@ extern GtkBuilder *builder;
 //extern series *s;
 
 GSList *l_series = NULL;
+GSList *l_found = NULL;
 
 
 extern "C" void handler_save_file(GtkButton *gtkButton, gpointer p_fc_widget) {
@@ -63,7 +64,7 @@ extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
         g_slist_free(l_series);
         l_series = NULL;
     }
-    gtk_tree_model_foreach(treeModel, read_list, NULL);
+    gtk_tree_model_foreach(treeModel, read_list, (gpointer) &l_series);
     gtk_list_store_clear(GTK_LIST_STORE(tree));
     const gchar *label = gtk_menu_item_get_label(menuItem);
     int selection = sort_menu_conv(label);
@@ -75,6 +76,10 @@ extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
 
 void destroy_widget(GtkWidget *widget){
     gtk_widget_destroy(widget);
+}
+
+extern "C" void handler_delete_widget(GtkButton *gtkButton, gpointer widget) {
+    destroy_widget(GTK_WIDGET(widget));
 }
 
 extern "C" void handler_show_search(GtkMenuItem *menuItem, gpointer p_header){
@@ -92,28 +97,44 @@ extern "C" void handler_search(GtkButton *button, gpointer plabel){
     gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
 
-    GSList *l_found = NULL;
-    if(l_series!=NULL){
-        g_slist_foreach(l_series, (GFunc)g_free, NULL);
-        g_slist_free(l_series);
-        l_series = NULL;
+    if(l_found!=NULL){
+        g_slist_foreach(l_found, (GFunc)g_free, (gpointer) NULL);
+        g_slist_free(l_found);
+        l_found = NULL;
     }
+
     const char *label = gtk_label_get_text(GTK_LABEL(plabel));
     int selection = search_conv(label);
     const char* text = get_entry(search_conv(label));
     GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
 
-    gtk_tree_model_foreach(treeModel, read_list, NULL);
-    search(l_series, l_found, selection, text);
+    gtk_tree_model_foreach(treeModel, read_list, (gpointer) &l_found);
+    l_found = search(l_found, selection, text);
     GtkListStore *listfound = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
+    gtk_list_store_clear(listfound);
     g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listfound);
+
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
 }
 
-extern "C" void handler_delete_widget(GtkButton *gtkButton, gpointer widget) {
-    destroy_widget(GTK_WIDGET(widget));
+extern "C" void handler_delete(GtkButton *button, gpointer ptw_found) {
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ptw_found));
+    //tw_edit(sel, DEL_MODE);
+    GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
+    series *s = get_sel(sel);
+    gtk_tree_model_foreach(treeModel, del, (gpointer) s);
+    destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
 }
 
-extern "C" void handler_delete_dialog(GtkWidget *gtkDialog, gpointer widget) {
+extern "C" void handler_edit(GtkButton *button, gpointer ptw_found){
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ptw_found));
+    GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
+    //tw_edit(sel, EDIT_MODE);
+    series *s = get_sel(sel);
+    dialog_edit(s, treeModel);
 }
 
 extern "C" void handler_add_series(GtkButton *gtkButton, gpointer add_series) {
@@ -197,6 +218,7 @@ extern "C" void handler_open_file(GtkButton *gtkButton, gpointer p_fc_widget) {
 
     load(l_series, fname);
     g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
+    destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_open")));
 }
 
 /**Handlers per la generazione delle finestre*/
