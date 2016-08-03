@@ -1,17 +1,47 @@
+/**
+ * @mainpage BlueHarvest
+ * 
+ * Programma gestionale di serie tv. Il programma consente di aggiungere modificare e cancellare e ordinare
+ * una lista di serie tv catalogate secondo varie caratteristiche 
+ * (nome, anno, numero episodi, genere, numero stagioni) oltre che segnarle come viste o concluse
+ * La lista così prodotta può poi essere salvata e aperta in seguito.
+ * 
+ * @author Daniele Ruffini
+ */
+
+/**
+ * @file file contenente il main del progetto
+ */
+ 
 #include <gtk/gtk.h>
 #include <iostream>
 //#include "manipulation.h"
 
 using namespace std;
 
+/**
+ * Builder dell'interfaccia grafica GTK per la creazione dell'UI del programma
+ */
 GtkBuilder *builder;
 
+/**
+ * Lista per i dati di una serie
+ */
 //Probabilmente da cambiare. Sarebbe lista per dati di una serie, ma lo volevi fare a elem singoli
 GSList *list_series;
 
+/**
+ * variabile per la selezione
+ */
 static int pick;
 
-
+/**
+ * Funzione main del progetto.
+ * Inizializza l'ambiente grafico GTK, crea il builder su cui inserire le varie componenti gtk grafiche
+ * e aggiunge le componenti essenziali al funzionamento della schermata principale.
+ * 
+ * Per la creazione delle varie
+*/
 int main(int argc, char *argv[]) {
 
     gtk_init(&argc, &argv);
