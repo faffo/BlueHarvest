@@ -28,7 +28,7 @@ int sort_menu_conv(const char *);
 
 int search_conv(const char *label);
 
-GSList* search(GSList *&l_found, const int selection, const char *label);
+GSList* search(GSList *l_found, const int selection, const char *label);
 
 int sort_name_conv(const char *name);
 

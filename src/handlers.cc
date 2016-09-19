@@ -24,34 +24,9 @@ GSList *l_found = NULL;
 
 extern "C" void handler_save_file(GtkButton *gtkButton, gpointer p_fc_widget) {
 
-    GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
-
     GtkFileChooser *fileChooser = GTK_FILE_CHOOSER(p_fc_widget);
     const char *fname = gtk_file_chooser_get_filename(fileChooser);
 
-    cout << fname << endl;
-    GSList** plist = &l_series;
-    gtk_tree_model_foreach(treeModel, read_list, NULL /*(gpointer) plist*/);
-
-    series *s = (series *) l_series->data;
-    cout << s->name << " " << s->last_episode << " " << s->n_episodes << " " << s->n_seasons << " " <<
-    s->year << " " << s->genre << " " << s->status << " " << s->watched << endl;
-/*
-    series *next = (series *) l_series->next;
-    GSList *tmp = l_series;
-    series *t = (series *) tmp->data;
-
-    while (tmp) {
-        cout << t->name << " " << t->last_episode << " " << t->n_episodes << " " << t->n_seasons << " " <<
-        t->year << " " << t->genre << " " << t->status << " " << t->watched << endl;
-        tmp = g_slist_next(tmp);
-    }
-*/
-    g_slist_foreach(l_series, (GFunc) print, NULL);
-
-    cout << "list for each print PRIMA di andare in save" << endl;
-    g_slist_foreach(l_series, (GFunc)print, NULL);
-    cout << "******************" << endl;
     save(l_series, fname);
 
 }
@@ -59,12 +34,14 @@ extern "C" void handler_save_file(GtkButton *gtkButton, gpointer p_fc_widget) {
 
 extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
     GtkTreeModel *treeModel = GTK_TREE_MODEL(tree);
+    /*
     if(l_series!=NULL){
         g_slist_foreach(l_series, (GFunc)g_free, NULL);
         g_slist_free(l_series);
         l_series = NULL;
     }
     gtk_tree_model_foreach(treeModel, read_list, (gpointer) &l_series);
+    */
     gtk_list_store_clear(GTK_LIST_STORE(tree));
     const gchar *label = gtk_menu_item_get_label(menuItem);
     int selection = sort_menu_conv(label);
@@ -108,8 +85,10 @@ extern "C" void handler_search(GtkButton *button, gpointer plabel){
     const char* text = get_entry(search_conv(label));
     GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
 
-    gtk_tree_model_foreach(treeModel, read_list, (gpointer) &l_found);
-    l_found = search(l_found, selection, text);
+    //gtk_tree_model_foreach(treeModel, read_list, (gpointer) &l_found);
+    //l_found = search(l_found, selection, text);
+    l_found = g_slist_copy(l_series);
+    search(l_found, selection, text);
     GtkListStore *listfound = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
     gtk_list_store_clear(listfound);
     g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listfound);
@@ -199,7 +178,9 @@ extern "C" void handler_add_series(GtkButton *gtkButton, gpointer add_series) {
 
     //refresh_treeview(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string, status_string, watched_string);
 
+    g_slist_append(l_series, s);
 
+    destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_add_series")));
 }
 
 extern "C" void handler_save(GtkButton *gtkButton, gpointer save_dialog_pointer) {

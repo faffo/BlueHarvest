@@ -157,7 +157,7 @@ void insert_series(GSList *&list, series *sin) {
     cout << "**********" << endl;
 }
 
-GSList* search(GSList *&list, const int selection, const char *label) {
+GSList* search(GSList *list, const int selection, const char *label) {
     GSList *found = NULL;
 
     series *s = new series;
