@@ -49,14 +49,17 @@ static int pick;
 */
 int main(int argc, char *argv[]) {
 
+    gchar file[] = "../src/resources/glade/main.glade";
     gtk_init(&argc, &argv);
-    builder = gtk_builder_new();
+    builder = gtk_builder_new_from_file(file);
     /**
      * vettore di stringhe contenente i nomi delle componenti grafiche di GLADE da caricare
      */
     gchar *objects[] = {"combo_genre", "list_series", "w_main", "image1", "entry_completion_name", "entry_completion_genre", NULL};
 
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+    //gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+    //gtk_builder_add_from_file(builder, "../src/resources/glade/main.glade",NULL);
+
 
     gtk_builder_connect_signals(builder, NULL);
     gtk_main();

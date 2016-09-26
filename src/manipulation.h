@@ -44,3 +44,9 @@ gboolean del(GtkTreeModel *model,
              gpointer data);
 
 void pure_char_string_conv(const char name[], char new_name[]);
+
+void sname(series*, gpointer);
+
+void sgenre(series*, gpointer);
+
+void print_name_test(series*);

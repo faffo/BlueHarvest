@@ -64,6 +64,12 @@ void dialog_edit(series *s, GtkTreeModel *treemodel){
     gtk_builder_connect_signals(builder, NULL);
 }
 
+void back_to_main(){
+    gtk_list_store_clear(GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found")));
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "foundbox")));
+    gtk_widget_show_all(GTK_WIDGET(gtk_builder_get_object(builder, "tw_series")));
+}
+
 gboolean read_list(GtkTreeModel *model,
                    GtkTreePath *path,
                    GtkTreeIter *iter,

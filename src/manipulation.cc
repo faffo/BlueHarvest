@@ -12,6 +12,7 @@ using namespace std;
 
 //series serie;
 
+extern GSList *l_found;
 
 const gchararray status_int2text(int status) {
     if (status) return (gchararray const) "Yes";
@@ -158,39 +159,25 @@ void insert_series(GSList *&list, series *sin) {
 }
 
 GSList* search(GSList *list, const int selection, const char *label) {
-    GSList *found = NULL;
 
-    series *s = new series;
-    while (list != NULL) {
-        if (selection == COL_NAME) {
-            if (!strcmp(((series *) list->data)->name, label)) {
-                //cout << "controllo valore tmp->data->name:   ";
-                //cout << ((series *) list->data)->name << endl;
-                s = (series *) list->data;
-                //cout << s->name << endl;
-                insert_series(found, s);
-                //g_slist_foreach(tmp, (GFunc)g_free, NULL);
-                //g_slist_free(tmp);
-                //cout << "test l_found name:  ";
-                //cout << ((series*)(l_found->data))->name << endl;
-                return found;
-            }
-        } else if(selection == COL_GEN){
-            if (!strcmp(((series *) list->data)->genre, label)){
-                //cout << "controllo valore tmp->data->genre:   ";
-                //cout << ((series *) tmp->data)->genre << endl;
-                s = (series *) list->data;
-                insert_series(found, s);
-                //cout << "test l_found genre:  ";
-                //cout << ((series*)(found->data))->genre << endl;
-            }
-        }
-        list = g_slist_next(list);
+}
+
+void sname(series* serie, gpointer pname){
+    const char* name = (const char *) pname;
+    if(strcmp(serie->name, name)){
+        g_slist_append(l_found, serie);
     }
-    g_slist_foreach(list, (GFunc)g_free, NULL);
-    g_slist_free(list);
-    list = NULL;
-    return found;
+}
+
+void sgenre(series* serie, gpointer pgenre){
+    const char* genre = (const char *) pgenre;
+    if(strcmp(serie->genre, genre)){
+        g_slist_append(l_found, serie);
+    }
+}
+
+void print_name_test(series* serie){
+    cout << serie->name << endl;
 }
 
 /*

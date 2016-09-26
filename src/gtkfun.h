@@ -20,6 +20,8 @@ series * get_sel(GtkTreeSelection *);
 
 void dialog_edit(series *, GtkTreeModel *);
 
+void back_to_main();
+
 gboolean read_list(GtkTreeModel *model,
                    GtkTreePath *path,
                    GtkTreeIter *iter,

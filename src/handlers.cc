@@ -10,7 +10,6 @@
 #include "loadsave.h"
 //#include "manipulation.h"
 //#include "struct.h"
-//#include <iostream>
 
 using namespace std;
 
@@ -21,6 +20,13 @@ extern GtkBuilder *builder;
 GSList *l_series = NULL;
 GSList *l_found = NULL;
 
+void destroy_widget(GtkWidget *widget){
+    gtk_widget_destroy(widget);
+}
+
+extern "C" void handler_delete_widget(GtkButton *gtkButton, gpointer widget) {
+    destroy_widget(GTK_WIDGET(widget));
+}
 
 extern "C" void handler_save_file(GtkButton *gtkButton, gpointer p_fc_widget) {
 
@@ -30,7 +36,6 @@ extern "C" void handler_save_file(GtkButton *gtkButton, gpointer p_fc_widget) {
     save(l_series, fname);
 
 }
-
 
 extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
     GtkTreeModel *treeModel = GTK_TREE_MODEL(tree);
@@ -51,14 +56,6 @@ extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
     g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) GTK_LIST_STORE(tree));
 }
 
-void destroy_widget(GtkWidget *widget){
-    gtk_widget_destroy(widget);
-}
-
-extern "C" void handler_delete_widget(GtkButton *gtkButton, gpointer widget) {
-    destroy_widget(GTK_WIDGET(widget));
-}
-
 extern "C" void handler_show_search(GtkMenuItem *menuItem, gpointer p_header){
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
@@ -70,15 +67,17 @@ extern "C" void handler_show_search(GtkMenuItem *menuItem, gpointer p_header){
 }
 
 extern "C" void handler_search(GtkButton *button, gpointer plabel){
-    gchar *objects[] = {"w_found", "list_found", NULL};
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
-    gtk_builder_connect_signals(builder, NULL);
+    //gchar *objects[] = {"w_found", "list_found", NULL};
+    //gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
+    //gtk_builder_connect_signals(builder, NULL);
 
     if(l_found!=NULL){
         g_slist_foreach(l_found, (GFunc)g_free, (gpointer) NULL);
         g_slist_free(l_found);
         l_found = NULL;
     }
+
+    gtk_widget_show_all(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
 
     const char *label = gtk_label_get_text(GTK_LABEL(plabel));
     int selection = search_conv(label);
@@ -92,6 +91,39 @@ extern "C" void handler_search(GtkButton *button, gpointer plabel){
     GtkListStore *listfound = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
     gtk_list_store_clear(listfound);
     g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listfound);
+
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
+}
+
+extern "C" void handler_search_name(GtkButton *button, gpointer pname){
+    //gchar *objects[] = {"w_found", "list_found", NULL};
+    //gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
+    //gtk_builder_connect_signals(builder, NULL);
+
+    const gchar* s_name = gtk_entry_get_text(GTK_ENTRY(pname));
+    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
+
+    g_slist_foreach(l_series, (GFunc) sname, (gpointer) s_name);
+
+    g_slist_foreach(l_found, (GFunc) print_name_test, NULL);
+
+    g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listStore);
+
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
+    gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
+
+    gtk_widget_show_all(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
+}
+
+extern "C" void handler_search_genre(GtkButton *button, gpointer pgenre){
+    const gchar* s_genre = gtk_entry_get_text(GTK_ENTRY(pgenre));
+    cout << s_genre << endl;
+    g_slist_foreach(l_series, (GFunc) sgenre, (gpointer) s_genre);
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
@@ -128,15 +160,15 @@ extern "C" void handler_add_series(GtkButton *gtkButton, gpointer add_series) {
     //numero ep
     GtkEntry *entry_series_num_ep = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 2);
     const gchar *series_num_ep_string = gtk_entry_get_text(entry_series_num_ep);
-    const gint series_num_ep = atoi(series_num_ep_string);
+    const gint series_num_ep = stoi(series_num_ep_string);
     //numero seas
     GtkEntry *entry_series_num_seas = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 3);
     const gchar *series_num_seas_string = gtk_entry_get_text(entry_series_num_seas);
-    const gint series_num_seas = atoi(series_num_seas_string);
+    const gint series_num_seas = stoi(series_num_seas_string);
     //anno
     GtkEntry *entry_series_year = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 4);
     const gchar *series_year_string = gtk_entry_get_text(entry_series_year);
-    const gint series_year = atoi(series_year_string);
+    const gint series_year = stoi(series_year_string);
     //genere
     GtkComboBoxText *combo_genre = (GtkComboBoxText *) gtk_grid_get_child_at(data_grid, 1, 5);
     const gchararray genre_string = (gchararray const) gtk_combo_box_text_get_active_text(combo_genre);
@@ -206,7 +238,7 @@ extern "C" void handler_open_file(GtkButton *gtkButton, gpointer p_fc_widget) {
 extern "C" void handler_add(GtkMenuItem *menuItem, gpointer dialog_add) {
     //gtk_widget_show_all(GTK_WIDGET(dialog_add));
     gchar *objects[] = {"w_add_series", NULL};
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
     //gtk_builder_add_from_file(dialog, "../src/resources/glade/dialog.glade", NULL);
 
@@ -214,13 +246,13 @@ extern "C" void handler_add(GtkMenuItem *menuItem, gpointer dialog_add) {
 
 extern "C" void handler_dialog_open(GtkMenuItem *menuItem, gpointer file_choser_open) {
     gchar *objects[] = {"w_open", NULL};
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
 }
 
 extern "C" void handler_dialog_save_as(GtkMenuItem *menuItem, gpointer file_chooser_save) {
     gchar *objects[] = {"w_save", NULL};
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
 }
 
