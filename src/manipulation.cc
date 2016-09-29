@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 //series serie;
 
 extern GSList *l_found;
@@ -22,6 +20,13 @@ const gchararray status_int2text(int status) {
 const gchararray watched_int2text(int watched) {
     if (watched) return (gchararray const) "Yes";
     else return (gchararray const) "No";
+}
+
+const char* itochar(gint number){
+    string str = to_string(number);
+    const char* text = str.c_str();
+    cout << "text in itochar: " << text << endl;
+    return text;
 }
 
 const int yn_text2int(gchararray watched) {
@@ -52,6 +57,46 @@ gboolean del(GtkTreeModel *model,
     if(!strcmp(name_searched, name)){
         GtkListStore *listStore = GTK_LIST_STORE(model);
         gtk_list_store_remove(listStore, iter);
+    }
+    return FALSE;
+}
+
+gboolean find_tw(GtkTreeModel *model,
+                GtkTreePath *path,
+                GtkTreeIter *iter,
+                gpointer psearch){
+    n_search_gtk *search = (n_search_gtk *) psearch;
+    char *name_searched = search->name;
+    cout << "test nome in find_tw: " << name_searched << endl;
+    int mode = search->mode;
+    cout << "test mode in find_tw: " << search->mode << endl;
+    gchararray name;
+    GtkListStore *listStore = GTK_LIST_STORE(model);
+
+    gtk_tree_model_get(model, iter, COL_NAME, &name, -1);
+    if(!strcmp(name_searched, name)){
+        switch (mode) {
+            case DEL_MODE: {
+                gtk_list_store_remove(listStore, iter);
+                return true;
+            }
+            case EDIT_MODE: {
+                cout << "testo ingresso in EDIT_MODE di edit_tw" << endl;
+                series *edited = search->edited;
+                cout << "test del contenuto di edited in EDIT_MODE dopo assegnamento prima di list_store_set" << endl;
+                gtk_list_store_set(listStore, iter, 0, edited->name,
+                                   1, edited->last_episode,
+                                   2, edited->n_episodes,
+                                   3, edited->n_seasons,
+                                   4, edited->year,
+                                   5, edited->genre,
+                                   6, status_int2text(edited->status),
+                                   7, watched_int2text(edited->watched),
+                                   -1);
+                return true;
+            }
+            default:;
+        }
     }
     return FALSE;
 }
@@ -163,22 +208,30 @@ GSList* search(GSList *list, const int selection, const char *label) {
 }
 
 void sname(series* serie, gpointer pname){
-    const char* name = (const char *) pname;
-    if(strcmp(serie->name, name)){
-        g_slist_append(l_found, serie);
+    const char* name =(const char *) pname;
+    cout << "name in sname:" << name << endl;
+    cout << "serie->name:" << serie->name << endl;
+
+    if(strcasestr(serie->name, name)){
+        l_found = g_slist_append(l_found, serie);
+        cout << "found" << endl;
+        series* testsearch = (series *) l_found->data;
+        cout << "name in l_found" << testsearch->name << endl;
     }
 }
 
 void sgenre(series* serie, gpointer pgenre){
     const char* genre = (const char *) pgenre;
-    if(strcmp(serie->genre, genre)){
-        g_slist_append(l_found, serie);
+    if(strcasestr(serie->genre, genre)){
+        l_found = g_slist_append(l_found, serie);
     }
 }
 
 void print_name_test(series* serie){
     cout << serie->name << endl;
 }
+
+
 
 /*
 bool edit(GSList* &list, const char name[], GSList* tmp, int pick, int status){

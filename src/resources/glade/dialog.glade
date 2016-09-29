@@ -2,6 +2,227 @@
 <!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="gtk+" version="3.16"/>
+  <object class="GtkListStore" id="list_found">
+    <columns>
+      <!-- column-name name_series -->
+      <column type="gchararray"/>
+      <!-- column-name last_episode -->
+      <column type="gchararray"/>
+      <!-- column-name episodes_number -->
+      <column type="gint"/>
+      <!-- column-name seasons_number -->
+      <column type="gint"/>
+      <!-- column-name year -->
+      <column type="gint"/>
+      <!-- column-name genre -->
+      <column type="gchararray"/>
+      <!-- column-name concluded -->
+      <column type="gchararray"/>
+      <!-- column-name watched -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="w_found">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="urgency_hint">True</property>
+    <child>
+      <object class="GtkBox" id="box_w_found">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkTreeView" id="tw_found">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscroll_policy">natural</property>
+            <property name="model">list_found</property>
+            <property name="enable_grid_lines">horizontal</property>
+            <child internal-child="selection">
+              <object class="GtkTreeSelection" id="treeview_selection2"/>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_name1">
+                <property name="sizing">autosize</property>
+                <property name="title" translatable="yes">Name</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="text_name1"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_last_ep1">
+                <property name="title" translatable="yes">Last Episode</property>
+                <child>
+                  <object class="GtkCellRendererText" id="text_last_ep1"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_n_episodes1">
+                <property name="title" translatable="yes">N. Episodes</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrendererpixbuf2"/>
+                  <attributes>
+                    <attribute name="text">2</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_n_seasons1">
+                <property name="title" translatable="yes">N. Seasons</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext5"/>
+                  <attributes>
+                    <attribute name="text">3</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_year1">
+                <property name="title" translatable="yes">Year</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext6"/>
+                  <attributes>
+                    <attribute name="text">4</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_genre1">
+                <property name="title" translatable="yes">Genre</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext7"/>
+                  <attributes>
+                    <attribute name="text">5</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_status1">
+                <property name="title" translatable="yes">Concluded</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderercombo3"/>
+                  <attributes>
+                    <attribute name="text">6</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="c_watched1">
+                <property name="title" translatable="yes">Watched</property>
+                <property name="expand">True</property>
+                <property name="reorderable">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderercombo4"/>
+                  <attributes>
+                    <attribute name="text">7</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="headerbar1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="title">Series found</property>
+        <child>
+          <object class="GtkButton" id="b_close_w_found">
+            <property name="label">gtk-close</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="handler_delete_widget" object="w_found" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="b_delete_w_found">
+            <property name="label">gtk-delete</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="handler_delete" object="tw_found" swapped="no"/>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="b_edit_w_found">
+            <property name="label">gtk-edit</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="handler_edit" object="tw_found" swapped="no"/>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkListStore" id="list_series">
+    <columns>
+      <!-- column-name name_series -->
+      <column type="gchararray"/>
+      <!-- column-name last_episode -->
+      <column type="gchararray"/>
+      <!-- column-name episodes_number -->
+      <column type="gint"/>
+      <!-- column-name seasons_number -->
+      <column type="gint"/>
+      <!-- column-name year -->
+      <column type="gint"/>
+      <!-- column-name genre -->
+      <column type="gchararray"/>
+      <!-- column-name concluded -->
+      <column type="gchararray"/>
+      <!-- column-name watched -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkWindow" id="w_add_series">
     <property name="width_request">300</property>
     <property name="height_request">300</property>
@@ -11,7 +232,7 @@
     <property name="resizable">False</property>
     <property name="type_hint">dialog</property>
     <child>
-      <object class="GtkBox" id="box3">
+      <object class="GtkBox" id="box_w_add">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">28</property>
@@ -148,25 +369,6 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBoxText" id="comboboxtext3">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <items>
-                  <item translatable="yes">Horror</item>
-                  <item translatable="yes">Fantasy</item>
-                  <item translatable="yes">Political</item>
-                  <item translatable="yes">Sci-Fi</item>
-                  <item translatable="yes">Sitcom</item>
-                  <item translatable="yes">Soap-Opera</item>
-                  <item translatable="yes">Thriller</item>
-                </items>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">5</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkLabel" id="name2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -214,6 +416,25 @@
                 <property name="top_attach">6</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkComboBoxText" id="comboboxtext3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <items>
+                  <item id="Horror" translatable="yes">Horror</item>
+                  <item id="Fantasy" translatable="yes">Fantasy</item>
+                  <item id="Political" translatable="yes">Political</item>
+                  <item id="Sci-Fi" translatable="yes">Sci-Fi</item>
+                  <item id="Sitcom" translatable="yes">Sitcom</item>
+                  <item id="Soap-Opera" translatable="yes">Soap-Opera</item>
+                  <item id="Thriller" translatable="yes">Thriller</item>
+                </items>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">5</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -245,7 +466,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_stock">True</property>
-            <signal name="clicked" handler="handler_add_series" object="grid5" swapped="no"/>
+            <signal name="clicked" handler="handler_add_series" object="grid_add_series" swapped="no"/>
           </object>
           <packing>
             <property name="pack_type">end</property>
@@ -255,9 +476,266 @@
       </object>
     </child>
   </object>
+  <object class="GtkWindow" id="w_edit">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkBox" id="box_w_edit">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">28</property>
+        <property name="homogeneous">True</property>
+        <child>
+          <object class="GtkHeaderBar" id="h_edit_add1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="title">Edit the series</property>
+            <child>
+              <object class="GtkButton" id="b_cancel_add_series1">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="b_confirm_edit">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <property name="always_show_image">True</property>
+                <signal name="clicked" handler="handler_edit_confirm" object="grid_edit_series" swapped="no"/>
+              </object>
+              <packing>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="grid_edit_series">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">6</property>
+            <property name="row_spacing">8</property>
+            <property name="column_spacing">20</property>
+            <property name="row_homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="edit_label_last_ep">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Last Episode</property>
+                <property name="lines">1</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_n_ep">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Number of Episodes</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_n_seas">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Number of Seasons</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_year">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Year</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_genre">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Genre</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_status">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Status</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="edit_entry_name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="edit_entry_last_ep">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="edit_entry_n_ep">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="edit_entry_n_seas">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="edit_entry_year">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="edit_combo_genre">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <items>
+                  <item id="Horror" translatable="yes">Horror</item>
+                  <item id="Fantasy" translatable="yes">Fantasy</item>
+                  <item id="Political" translatable="yes">Political</item>
+                  <item id="Sci-Fi" translatable="yes">Sci-Fi</item>
+                  <item id="Sitcom" translatable="yes">Sitcom</item>
+                  <item id="Soap-Opera" translatable="yes">Soap-Opera</item>
+                  <item id="Thriller" translatable="yes">Thriller</item>
+                </items>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="edit_label_name">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Name</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkCheckButton" id="edit_checkb_watched">
+                    <property name="label" translatable="yes">Watched</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="edit_checkb_status">
+                    <property name="label" translatable="yes">Ended</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">6</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="w_open">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="type">popup</property>
+    <property name="window_position">center</property>
+    <property name="urgency_hint">True</property>
     <property name="gravity">center</property>
     <child>
       <object class="GtkFileChooserWidget" id="file_chooser_open">

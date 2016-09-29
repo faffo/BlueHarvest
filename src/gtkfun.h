@@ -28,3 +28,5 @@ gboolean read_list(GtkTreeModel *model,
                    gpointer data);
 
 const char * get_entry(int);
+
+series * grid_to_struct(GtkGrid*);

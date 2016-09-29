@@ -43,6 +43,11 @@ gboolean del(GtkTreeModel *model,
              GtkTreeIter *iter,
              gpointer data);
 
+gboolean find_tw(GtkTreeModel *model,
+             GtkTreePath *path,
+             GtkTreeIter *iter,
+             gpointer data);
+
 void pure_char_string_conv(const char name[], char new_name[]);
 
 void sname(series*, gpointer);
@@ -50,3 +55,5 @@ void sname(series*, gpointer);
 void sgenre(series*, gpointer);
 
 void print_name_test(series*);
+
+const char* itochar(gint);

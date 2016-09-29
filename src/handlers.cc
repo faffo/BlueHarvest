@@ -99,16 +99,20 @@ extern "C" void handler_search(GtkButton *button, gpointer plabel){
 }
 
 extern "C" void handler_search_name(GtkButton *button, gpointer pname){
-    //gchar *objects[] = {"w_found", "list_found", NULL};
-    //gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
-    //gtk_builder_connect_signals(builder, NULL);
+    gchar *objects[] = {"w_found", "list_found", NULL};
+    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
+    gtk_builder_connect_signals(builder, NULL);
+
+    g_slist_foreach(l_found, (GFunc)g_free, NULL);
+    g_slist_free(l_found);
+    l_found = NULL;
 
     const gchar* s_name = gtk_entry_get_text(GTK_ENTRY(pname));
     GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
 
     g_slist_foreach(l_series, (GFunc) sname, (gpointer) s_name);
 
-    g_slist_foreach(l_found, (GFunc) print_name_test, NULL);
+    //g_slist_foreach(l_found, (GFunc) print_name_test, NULL);
 
     g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listStore);
 
@@ -116,14 +120,24 @@ extern "C" void handler_search_name(GtkButton *button, gpointer pname){
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
-
-    gtk_widget_show_all(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
 }
 
 extern "C" void handler_search_genre(GtkButton *button, gpointer pgenre){
+    gchar *objects[] = {"w_found", "list_found", NULL};
+    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
+    gtk_builder_connect_signals(builder, NULL);
+
+    g_slist_foreach(l_found, (GFunc)g_free, NULL);
+    g_slist_free(l_found);
+    l_found = NULL;
+
     const gchar* s_genre = gtk_entry_get_text(GTK_ENTRY(pgenre));
+    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
     cout << s_genre << endl;
+
     g_slist_foreach(l_series, (GFunc) sgenre, (gpointer) s_genre);
+
+    g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listStore);
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
@@ -136,7 +150,17 @@ extern "C" void handler_delete(GtkButton *button, gpointer ptw_found) {
     //tw_edit(sel, DEL_MODE);
     GtkTreeModel *treeModel = GTK_TREE_MODEL(gtk_builder_get_object(builder, "list_series"));
     series *s = get_sel(sel);
-    gtk_tree_model_foreach(treeModel, del, (gpointer) s);
+
+    n_search_gtk *search_data = new n_search_gtk;
+    char *name = s->name;
+    search_data->name = name;
+    search_data->mode = DEL_MODE;
+    cout << "test search_data-> mode in handler_delete: " << search_data->mode << endl;
+
+    gtk_tree_model_foreach(treeModel, find_tw, (gpointer) search_data);
+
+    gtk_tree_model_foreach(treeModel, del, (gpointer) search_data);
+    l_series = g_slist_remove(l_series, s);
     destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
 }
 
@@ -148,9 +172,52 @@ extern "C" void handler_edit(GtkButton *button, gpointer ptw_found){
     dialog_edit(s, treeModel);
 }
 
+extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series){
+    cout << "DENTRO HANDLER_EDIT_CONFIRM" << endl;
+    //Inizializzo treeview found e series oltre che la selezione
+    GtkTreeView *treeViewfound = GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found"));
+    GtkTreeView *treeViewSeries = GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_series"));
+    GtkTreeModel *treeModel = GTK_TREE_MODEL((gtk_builder_get_object(builder, "list_series")));
+    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(treeViewfound);
+    //Estrappolo la serie dalla selezione
+    series *s = get_sel(sel);
+    char *name = s->name;
+    //creo iter
+    GtkTreeIter *iter = NULL;
+    //prendo dati dalla grid
+    GtkGrid *data_grid = (GtkGrid *) edit_series;
+
+    series *edited = grid_to_struct(data_grid);
+
+    cout << "test contenuto nome edited->name: " << edited->name << endl;
+
+    //creo struct per passaggio info a funzione find
+    n_search_gtk *search_data = new n_search_gtk;
+    search_data->name = name;
+    search_data->mode = EDIT_MODE;
+    search_data->edited = edited;
+
+    //eseguo treeview foreach
+    //gtk_tree_model_foreach(treeModel, find_tw, (gpointer) search_data);
+
+    gtk_list_store_clear(listStore);
+
+    int index = g_slist_index(l_series, s);
+    l_series = g_slist_remove_all(l_series, s);
+    l_series = g_slist_insert(l_series, edited, index);
+    g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
+
+    //gtk_tree_selection_get_selected(sel, (GtkTreeModel **) treeViewfound, iter);
+    //gtk_list_store_set(GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series")), iter);
+
+    gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_edit")));
+}
+
 extern "C" void handler_add_series(GtkButton *gtkButton, gpointer add_series) {
 
     GtkGrid *data_grid = (GtkGrid *) add_series;
+    /*
     //name
     GtkEntry *entry_series_name = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 0);
     const gchararray series_name = (gchararray const) gtk_entry_get_text(entry_series_name);
@@ -201,16 +268,19 @@ extern "C" void handler_add_series(GtkButton *gtkButton, gpointer add_series) {
     cout << watched_string << endl;
     cout << "**********" << endl;
 */
-
+    /*
     series *s = data_to_struct(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string,
                        status_string, watched_string);
+    */
+
+    series *s = grid_to_struct(data_grid);
     //insert_series(l_series,series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string, status_string, watched_string);
     GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
     refresh_treeview(s, (gpointer) listStore);
 
     //refresh_treeview(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string, status_string, watched_string);
 
-    g_slist_append(l_series, s);
+    l_series = g_slist_append(l_series, s);
 
     destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_add_series")));
 }

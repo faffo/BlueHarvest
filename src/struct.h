@@ -49,3 +49,9 @@ struct series {
     int status;
     int watched;
 };
+
+struct n_search_gtk{
+    char *name;
+    int mode;
+    series *edited;
+};
