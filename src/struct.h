@@ -55,3 +55,8 @@ struct n_search_gtk{
     int mode;
     series *edited;
 };
+
+struct s_edit_slist{
+    char *name;
+    series *edited;
+};

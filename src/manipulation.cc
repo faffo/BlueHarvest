@@ -231,6 +231,26 @@ void print_name_test(series* serie){
     cout << serie->name << endl;
 }
 
+void edit(gpointer pold, gpointer pedit){
+    cout << "dentro edit in foreach" << endl;
+    series* old = (series *) pold;
+    n_search_gtk* data = (n_search_gtk *) pedit;
+    series* edited = data->edited;
+    cout << "old->name: " << old->name << endl;
+    cout << "edited->name: " << edited->name << endl;
+    if(!strcasecmp(old->name, data->name)){
+        strcpy(old->name, edited->name);
+        strcpy(old->last_episode, edited->last_episode);
+        old->n_episodes = edited->n_episodes;
+        old->n_seasons = edited->n_seasons;
+        old->year = edited->year;
+        strcpy(old->genre, edited->genre);
+        old->status=edited->status;
+        old->watched=edited->watched;
+        return;
+    }
+}
+
 
 
 /*

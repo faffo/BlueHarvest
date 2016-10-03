@@ -201,11 +201,15 @@ extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series){
     //eseguo treeview foreach
     //gtk_tree_model_foreach(treeModel, find_tw, (gpointer) search_data);
 
-    gtk_list_store_clear(listStore);
 
-    int index = g_slist_index(l_series, s);
-    l_series = g_slist_remove_all(l_series, s);
-    l_series = g_slist_insert(l_series, edited, index);
+
+    g_slist_foreach(l_series, (GFunc) print, NULL);
+    g_slist_foreach(l_series, (GFunc) edit, search_data);
+    cout << "me ha cambiato qualcosa il remove?????" << endl;
+    g_slist_foreach(l_series, (GFunc) print, NULL);
+    //cout << "testo se ho sostituito s con edited: " << test->name << endl;
+    //cout << "posizione elemente ricercato index: " << index <<endl;
+    gtk_list_store_clear(listStore);
     g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
 
     //gtk_tree_selection_get_selected(sel, (GtkTreeModel **) treeViewfound, iter);

@@ -57,3 +57,5 @@ void sgenre(series*, gpointer);
 void print_name_test(series*);
 
 const char* itochar(gint);
+
+void edit(gpointer, gpointer );
