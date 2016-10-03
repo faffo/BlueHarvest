@@ -38,7 +38,7 @@ const gchararray watched_int2text(int);
 
 bool edit(GSList *&list, const char name[], GSList *tmp, int pick, int status);
 
-gboolean del(GtkTreeModel *model,
+gboolean gtk_del(GtkTreeModel *model,
              GtkTreePath *path,
              GtkTreeIter *iter,
              gpointer data);
@@ -59,3 +59,7 @@ void print_name_test(series*);
 const char* itochar(gint);
 
 void edit(gpointer, gpointer );
+
+GSList* search_list(GSList* list, const char nome[]);
+
+bool del_list(GSList* &list, GSList*tmp);

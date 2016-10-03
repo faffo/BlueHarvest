@@ -31,11 +31,6 @@
       </row>
     </data>
   </object>
-  <object class="GtkImage" id="image2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icon.png</property>
-  </object>
   <object class="GtkListStore" id="list_series">
     <columns>
       <!-- column-name name_series -->
@@ -76,6 +71,11 @@
       </attributes>
     </child>
   </object>
+  <object class="GtkImage" id="logo_old">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icon.png</property>
+  </object>
   <object class="GtkWindow" id="w_main">
     <property name="width_request">900</property>
     <property name="height_request">500</property>
@@ -96,13 +96,13 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkMenuItem" id="menuitem1">
+              <object class="GtkMenuItem" id="menu_file">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_File</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu1">
+                  <object class="GtkMenu" id="m_file">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -113,6 +113,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="activate" handler="handler_new" object="list_series" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -134,6 +135,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="activate" handler="handler_save" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -169,13 +171,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="menuitem2">
+              <object class="GtkMenuItem" id="menu_edit">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Edit</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu2">
+                  <object class="GtkMenu" id="m_edit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -201,13 +203,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="menuitem3">
+              <object class="GtkMenuItem" id="menu_view">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_View</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu4">
+                  <object class="GtkMenu" id="m_view">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -292,13 +294,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="menuitem4">
+              <object class="GtkMenuItem" id="menu_help">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Help</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu3">
+                  <object class="GtkMenu" id="m_help">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -315,13 +317,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="menuitem5">
+              <object class="GtkMenuItem" id="menu_search">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Search</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu6">
+                  <object class="GtkMenu" id="m_search">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -617,7 +619,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="image">image2</property>
+            <property name="image">logo_old</property>
             <property name="always_show_image">True</property>
           </object>
         </child>

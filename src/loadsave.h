@@ -15,3 +15,5 @@ bool save(GSList *s_list, const char f_name[]);
 bool load(GSList *&list, const char f_name[]);
 
 void print(gpointer, gpointer);
+
+void read_defaultfn(char *);

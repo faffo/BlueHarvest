@@ -25,7 +25,7 @@ const gchararray watched_int2text(int watched) {
 const char* itochar(gint number){
     string str = to_string(number);
     const char* text = str.c_str();
-    cout << "text in itochar: " << text << endl;
+    DEB(cout << "text in itochar: " << text << endl);
     return text;
 }
 
@@ -43,7 +43,7 @@ const char *int2stat(int stat) {
     }
 }
 
-gboolean del(GtkTreeModel *model,
+gboolean gtk_del(GtkTreeModel *model,
                    GtkTreePath *path,
                    GtkTreeIter *iter,
                    gpointer pseries){
@@ -67,9 +67,9 @@ gboolean find_tw(GtkTreeModel *model,
                 gpointer psearch){
     n_search_gtk *search = (n_search_gtk *) psearch;
     char *name_searched = search->name;
-    cout << "test nome in find_tw: " << name_searched << endl;
+    DEB(cout << "test nome in find_tw: " << name_searched << endl);
     int mode = search->mode;
-    cout << "test mode in find_tw: " << search->mode << endl;
+    DEB(cout << "test mode in find_tw: " << search->mode << endl);
     gchararray name;
     GtkListStore *listStore = GTK_LIST_STORE(model);
 
@@ -81,9 +81,9 @@ gboolean find_tw(GtkTreeModel *model,
                 return true;
             }
             case EDIT_MODE: {
-                cout << "testo ingresso in EDIT_MODE di edit_tw" << endl;
+                DEB(cout << "testo ingresso in EDIT_MODE di edit_tw" << endl);
                 series *edited = search->edited;
-                cout << "test del contenuto di edited in EDIT_MODE dopo assegnamento prima di list_store_set" << endl;
+                DEB(cout << "test del contenuto di edited in EDIT_MODE dopo assegnamento prima di list_store_set" << endl);
                 gtk_list_store_set(listStore, iter, 0, edited->name,
                                    1, edited->last_episode,
                                    2, edited->n_episodes,
@@ -191,16 +191,16 @@ int sort_name_conv(const char *name) {
 
 
 void insert_series(GSList *&list, series *sin) {
-    cout << "**************************" << endl;
-    cout << "dentro insert_series" << endl;
+    DEB(cout << "**************************" << endl;
+    cout << "dentro insert_series" << endl);
     series *s = new series;
     s = sin;
-    cout << s->name << " " << s->last_episode << " " << s->n_episodes << " " << s->n_seasons << " " << s->year << " " <<
-    s->genre << " " << s->status << " " << s->watched << endl;
+    DEB(cout << s->name << " " << s->last_episode << " " << s->n_episodes << " " << s->n_seasons << " " << s->year << " " <<
+    s->genre << " " << s->status << " " << s->watched << endl);
 
     list = g_slist_append(list, s);
-    cout << ((series *)list->data)->name << endl;
-    cout << "**********" << endl;
+    DEB(cout << ((series *)list->data)->name << endl;
+    cout << "**********" << endl);
 }
 
 GSList* search(GSList *list, const int selection, const char *label) {
@@ -209,14 +209,14 @@ GSList* search(GSList *list, const int selection, const char *label) {
 
 void sname(series* serie, gpointer pname){
     const char* name =(const char *) pname;
-    cout << "name in sname:" << name << endl;
-    cout << "serie->name:" << serie->name << endl;
+    DEB(cout << "name in sname:" << name << endl;
+    cout << "serie->name:" << serie->name << endl);
 
     if(strcasestr(serie->name, name)){
         l_found = g_slist_append(l_found, serie);
-        cout << "found" << endl;
+        DEB(cout << "found" << endl);
         series* testsearch = (series *) l_found->data;
-        cout << "name in l_found" << testsearch->name << endl;
+        DEB(cout << "name in l_found" << testsearch->name << endl);
     }
 }
 
@@ -228,16 +228,16 @@ void sgenre(series* serie, gpointer pgenre){
 }
 
 void print_name_test(series* serie){
-    cout << serie->name << endl;
+    DEB(cout << serie->name << endl);
 }
 
 void edit(gpointer pold, gpointer pedit){
-    cout << "dentro edit in foreach" << endl;
+    DEB(cout << "dentro edit in foreach" << endl);
     series* old = (series *) pold;
     n_search_gtk* data = (n_search_gtk *) pedit;
     series* edited = data->edited;
-    cout << "old->name: " << old->name << endl;
-    cout << "edited->name: " << edited->name << endl;
+    DEB(cout << "old->name: " << old->name << endl;
+    cout << "edited->name: " << edited->name << endl);
     if(!strcasecmp(old->name, data->name)){
         strcpy(old->name, edited->name);
         strcpy(old->last_episode, edited->last_episode);
@@ -251,33 +251,30 @@ void edit(gpointer pold, gpointer pedit){
     }
 }
 
+void del(gpointer ptarget, gpointer pname){
+    series * target = (series *) ptarget;
+    char * name = (char *) pname;
+    if(!strcasecmp(target->name, name)){
 
-
-/*
-bool edit(GSList* &list, const char name[], GSList* tmp, int pick, int status){
-    switch (pick){
-        case 0:
-            strcpy(((series*) tmp->data)->name, name);
-            return true;
-        default:
-            ((series*)tmp->data)->status= static_cast<t_status>(status);
     }
 }
-*/
-/*
-void pure_char_string_conv(const char name[], char new_name[]) {
-    stringstream name1;
-    string s;
-    char c;
-    int i = 0;
-    name1.write(name, LENGTH - 1);
-    getline(name1, s);
-    string dest;
-    remove_copy(s.begin(), s.end(), back_inserter(dest), ' ');
-    strcpy(new_name, dest.c_str());
-    while (new_name[i]) {
-        new_name[i] = tolower(new_name[i]);
-        i++;
-    };
+
+GSList* search_list(GSList* list, const char nome[])
+{
+    GSList* tmp = list;
+    while (tmp != NULL)  {
+        if (!strcmp(((series*) tmp->data)->name, nome)){
+            DEB(cout<<"trovato"<<endl);
+            return tmp;
+        }
+        tmp=g_slist_next(tmp);
+    }
+    return NULL;
 }
- */
+
+bool del_list(GSList* &list, GSList*tmp)
+{
+    list=g_slist_remove_link (list,tmp);
+    g_slist_free_1 (tmp);
+    return true;
+}

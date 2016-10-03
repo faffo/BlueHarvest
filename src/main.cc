@@ -15,7 +15,7 @@
  
 #include <gtk/gtk.h>
 #include <iostream>
-//#include "manipulation.h"
+#include "gtkfun.h"
 
 using namespace std;
 
@@ -23,12 +23,6 @@ using namespace std;
  * Builder dell'interfaccia grafica GTK per la creazione dell'UI del programma tramite GLADE
  */
 GtkBuilder *builder;
-
-/**
- * Lista per i dati di una serie
- */
-//Probabilmente da cambiare. Sarebbe lista per dati di una serie, ma lo volevi fare a elem singoli
-GSList *list_series;
 
 /**
  * variabile per la selezione
@@ -49,17 +43,28 @@ static int pick;
 */
 int main(int argc, char *argv[]) {
 
-    gchar file[] = "../src/resources/glade/main.glade";
-    gtk_init(&argc, &argv);
-    builder = gtk_builder_new_from_file(file);
     /**
-     * vettore di stringhe contenente i nomi delle componenti grafiche di GLADE da caricare
+     * Nome del file glade della main interface:
      */
-    gchar *objects[] = {"combo_genre", "list_series", "w_main", "image1", "entry_completion_name", "entry_completion_genre", NULL};
-
-    //gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
-    //gtk_builder_add_from_file(builder, "../src/resources/glade/main.glade",NULL);
-
+    gchar file[] = "../src/resources/glade/main.glade";
+    /**
+     * Nome del file con apertura di default:
+     */
+    gtk_init(&argc, &argv);
+    /**
+     * Inizializzo builder e al momento della creazione gli faccio importare gli oggetti grafici creati con glade nel file: main.glade
+     * Un altro modo di inizializzare il builder è il seguente:
+     * Creo vettore di stringhe contenente i nomi delle componenti grafiche di GLADE da caricare
+     * gchar *objects[] = {"combo_genre", "list_series", "w_main", "image1", "entry_completion_name", "entry_completion_genre", NULL};
+     * Uso questa funzione passando la lista creata precedentemente:
+     * gtk_builder_add_objects_from_file(builder, "../src/resources/glade/main.glade", objects, NULL);
+     *
+     */
+    builder = gtk_builder_new_from_file(BUILDER_PATH_MAIN);
+    /**
+     * Se è salvato un file name come apertura di default apre il file
+     */
+    default_on_startup();
 
     gtk_builder_connect_signals(builder, NULL);
     gtk_main();
