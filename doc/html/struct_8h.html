@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo2.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Blue Harvest
    </div>
@@ -69,6 +69,9 @@ $(function() {
 <div class="title">Riferimenti per il file struct.h</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>file di header contenente le strutture base del progetto.  
+<a href="#details">Continua...</a></p>
 <div class="textblock"><code>#include &lt;libmng_types.h&gt;</code><br />
 <code>#include &lt;gtk/gtk.h&gt;</code><br />
 </div>
@@ -81,6 +84,9 @@ Composti</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structn__search__gtk.html">n_search_gtk</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist.  <a href="structn__search__gtk.html#details">Continua...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsearch__data.html">search_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struttura di supporto per passare le informazioni nei foreach di g_slist.  <a href="structsearch__data.html#details">Continua...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -125,7 +131,10 @@ Variabili</h2></td></tr>
 <tr class="memdesc:a3323d9ca6fa74c5039f7e92ac7c31876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Percorso contenente il file .glade per la finestra main.  <a href="#a3323d9ca6fa74c5039f7e92ac7c31876">Continua...</a><br /></td></tr>
 <tr class="separator:a3323d9ca6fa74c5039f7e92ac7c31876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentazione delle definizioni</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
+<div class="textblock"><p>file di header contenente le strutture base del progetto. </p>
+<p>Definisce anche alcune variabili globali. Viene definito qui anche la macro di tracing per il debug. </p>
+</div><h2 class="groupheader">Documentazione delle definizioni</h2>
 <a id="af9daf8fa9b1aa8d19df9e06f33871a7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9daf8fa9b1aa8d19df9e06f33871a7e">&sect;&nbsp;</a></span>DEB</h2>
 
@@ -162,8 +171,8 @@ Variabili</h2></td></tr>
 <tr><th colspan="2">Valori del tipo enumerato</th></tr><tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b"></a>DEL_MODE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b"></a>EDIT_MODE&#160;</td><td class="fielddoc"></td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;               {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a> = 0,</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div><div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:64</div></div>
-<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:65</div></div>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;               {</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a> = 0,</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div><div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:67</div></div>
+<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:68</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -190,14 +199,14 @@ Variabili</h2></td></tr>
 <tr><td class="fieldname"><a id="a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881"></a>COL_STAT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f"></a>COL_WATCHED&#160;</td><td class="fielddoc"></td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a> = 0,</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a">COL_LAST_EP</a>,</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a>,</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a>,</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a>,</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>,</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a>,</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div><div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a></div><div class="ttdef"><b>Definition:</b> struct.h:57</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a></div><div class="ttdef"><b>Definition:</b> struct.h:55</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:56</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:53</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a">COL_LAST_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:52</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="ttdef"><b>Definition:</b> struct.h:58</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:51</div></div>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a> = 0,</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a">COL_LAST_EP</a>,</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a>,</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a>,</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a>,</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>,</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a>,</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div><div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a></div><div class="ttdef"><b>Definition:</b> struct.h:60</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a></div><div class="ttdef"><b>Definition:</b> struct.h:58</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:59</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:56</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aaabf283148fced17f487360d6bd1d9d9a">COL_LAST_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:55</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="ttdef"><b>Definition:</b> struct.h:61</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a></div><div class="ttdef"><b>Definition:</b> struct.h:57</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -9,7 +9,7 @@ include_directories(${GTK3_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_
 link_directories(${GTK3_LIBRARY_DIRS})
 # Add other flags to the compiler
 #add_definitions(${GTK3_CFLAGS_OTHER})
-set(CMAKE_CXX_FLAGS "-Wall -export-dynamic -rdynamic")
+set(CMAKE_CXX_FLAGS "-Wall -export-dynamic -rdynamic -D DEBUG")
 # Set output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/out)
 # Add an executable compiled from main.cc

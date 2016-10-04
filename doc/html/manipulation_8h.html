@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo2.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Blue Harvest
    </div>
@@ -66,6 +66,9 @@ $(function() {
 <div class="title">Riferimenti per il file manipulation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>file di header contenente di <a class="el" href="manipulation_8cc.html" title="file contenente le funzioni di manipolazione dati. ">manipulation.cc</a>  
+<a href="#details">Continua...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;gtk/gtk.h&gt;</code><br />
@@ -78,47 +81,75 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
 <tr class="memitem:a4870c4f6a597637b1d42cae535f53e0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structseries.html">series</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a4870c4f6a597637b1d42cae535f53e0c">data_to_struct</a> (const gchararray, const gchararray, const gint, const gint, const gint, const gchararray, gchararray, gchararray)</td></tr>
+<tr class="memdesc:a4870c4f6a597637b1d42cae535f53e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione ausiliaria per la creazione di una struct series da dei dati in ingresso.  <a href="#a4870c4f6a597637b1d42cae535f53e0c">Continua...</a><br /></td></tr>
 <tr class="separator:a4870c4f6a597637b1d42cae535f53e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23ffb73b3b258afb55c3ce759e8ec04d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a23ffb73b3b258afb55c3ce759e8ec04d">insert_series</a> (GSList *&amp;list, <a class="el" href="structseries.html">series</a> *s)</td></tr>
-<tr class="separator:a23ffb73b3b258afb55c3ce759e8ec04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c10fc468ab57bd203d93413f30388af"><td class="memItemLeft" align="right" valign="top">GSList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a8c10fc468ab57bd203d93413f30388af">sort</a> (GSList *list, int picked)</td></tr>
+<tr class="memdesc:a8c10fc468ab57bd203d93413f30388af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per l'ordinamento di una lista in ingresso.  <a href="#a8c10fc468ab57bd203d93413f30388af">Continua...</a><br /></td></tr>
 <tr class="separator:a8c10fc468ab57bd203d93413f30388af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3cd7e39786d917aa90200abf70d53f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aae3cd7e39786d917aa90200abf70d53f">sort_menu_conv</a> (const char *)</td></tr>
+<tr class="memdesc:aae3cd7e39786d917aa90200abf70d53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione ausiliaria per l'ordinamento di una lista in base alla label passata.  <a href="#aae3cd7e39786d917aa90200abf70d53f">Continua...</a><br /></td></tr>
 <tr class="separator:aae3cd7e39786d917aa90200abf70d53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f637a699ba4ef191bda9fef00c1138"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#ae0f637a699ba4ef191bda9fef00c1138">search_conv</a> (const char *label)</td></tr>
-<tr class="separator:ae0f637a699ba4ef191bda9fef00c1138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a627dff6e76f8129ce89f838a95276031"><td class="memItemLeft" align="right" valign="top">GSList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a627dff6e76f8129ce89f838a95276031">search</a> (GSList *<a class="el" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, const int selection, const char *label)</td></tr>
-<tr class="separator:a627dff6e76f8129ce89f838a95276031"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a1a2e601bf4e82b35313bcfc1f276e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#ac2a1a2e601bf4e82b35313bcfc1f276e">sort_name_conv</a> (const char *name)</td></tr>
-<tr class="separator:ac2a1a2e601bf4e82b35313bcfc1f276e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c65d8c581f38dfe5848cfc16f08d67d"><td class="memItemLeft" align="right" valign="top">const gchararray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a1c65d8c581f38dfe5848cfc16f08d67d">status_int2text</a> (int)</td></tr>
-<tr class="separator:a1c65d8c581f38dfe5848cfc16f08d67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22eb249047ea2d5c2fa947103f7e435e"><td class="memItemLeft" align="right" valign="top">const gchararray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a22eb249047ea2d5c2fa947103f7e435e">watched_int2text</a> (int)</td></tr>
-<tr class="separator:a22eb249047ea2d5c2fa947103f7e435e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedbaf7157643a95da87295796aa81732"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aedbaf7157643a95da87295796aa81732">edit</a> (GSList *&amp;list, const char name[], GSList *tmp, int pick, int status)</td></tr>
-<tr class="separator:aedbaf7157643a95da87295796aa81732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5798314f643d5c68227d03763fb76787"><td class="memItemLeft" align="right" valign="top">const gchararray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a5798314f643d5c68227d03763fb76787">bool2text</a> (bool text)</td></tr>
+<tr class="memdesc:a5798314f643d5c68227d03763fb76787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione ausiliaria per trasformate i valori booleani contenuti in series (watched e status) in testo.  <a href="#a5798314f643d5c68227d03763fb76787">Continua...</a><br /></td></tr>
+<tr class="separator:a5798314f643d5c68227d03763fb76787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab072f944a747be5c6e85fd084cd471f"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aab072f944a747be5c6e85fd084cd471f">gtk_del</a> (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)</td></tr>
+<tr class="memdesc:aab072f944a747be5c6e85fd084cd471f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per cancellare una riga da un listStore data una serie in inngresso.  <a href="#aab072f944a747be5c6e85fd084cd471f">Continua...</a><br /></td></tr>
 <tr class="separator:aab072f944a747be5c6e85fd084cd471f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff85beb103275ed1c84fa18831fc8faf"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aff85beb103275ed1c84fa18831fc8faf">find_tw</a> (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)</td></tr>
+<tr class="memdesc:aff85beb103275ed1c84fa18831fc8faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione generica per la ricerca di una serie all'interno di una treeview.  <a href="#aff85beb103275ed1c84fa18831fc8faf">Continua...</a><br /></td></tr>
 <tr class="separator:aff85beb103275ed1c84fa18831fc8faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac605bf6bf30d308ae34e2a1c3f352981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#ac605bf6bf30d308ae34e2a1c3f352981">pure_char_string_conv</a> (const char name[], char new_name[])</td></tr>
-<tr class="separator:ac605bf6bf30d308ae34e2a1c3f352981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0105e51722f910f047a0f1e2dcf93992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a0105e51722f910f047a0f1e2dcf93992">s_data</a> (<a class="el" href="structseries.html">series</a> *serie, gpointer pdata)</td></tr>
+<tr class="memdesc:a0105e51722f910f047a0f1e2dcf93992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per la copia di determinate serie cercate in una lista secondaria (l_found).  <a href="#a0105e51722f910f047a0f1e2dcf93992">Continua...</a><br /></td></tr>
+<tr class="separator:a0105e51722f910f047a0f1e2dcf93992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad208db031a549e0ee387a1359b4d458e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#ad208db031a549e0ee387a1359b4d458e">sname</a> (<a class="el" href="structseries.html">series</a> *, gpointer)</td></tr>
+<tr class="memdesc:ad208db031a549e0ee387a1359b4d458e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per la copia di determinate serie cercate in una lista secondaria (l_found).  <a href="#ad208db031a549e0ee387a1359b4d458e">Continua...</a><br /></td></tr>
 <tr class="separator:ad208db031a549e0ee387a1359b4d458e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a576813d9ec8118ee0d6700d6ce1517c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a576813d9ec8118ee0d6700d6ce1517c2">sgenre</a> (<a class="el" href="structseries.html">series</a> *, gpointer)</td></tr>
+<tr class="memdesc:a576813d9ec8118ee0d6700d6ce1517c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per la copia di determinate serie cercate in una lista secondaria (l_found).  <a href="#a576813d9ec8118ee0d6700d6ce1517c2">Continua...</a><br /></td></tr>
 <tr class="separator:a576813d9ec8118ee0d6700d6ce1517c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3ed45c0f2dcaaa25e11c47e4f495a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a8e3ed45c0f2dcaaa25e11c47e4f495a2">print_name_test</a> (<a class="el" href="structseries.html">series</a> *)</td></tr>
-<tr class="separator:a8e3ed45c0f2dcaaa25e11c47e4f495a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a47133ddeb101b0818e80306ba7bd2"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aa8a47133ddeb101b0818e80306ba7bd2">itochar</a> (gint)</td></tr>
+<tr class="memdesc:aa8a47133ddeb101b0818e80306ba7bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione ausiliaria per trasformare un integer nel medesimo numero in formato char*.  <a href="#aa8a47133ddeb101b0818e80306ba7bd2">Continua...</a><br /></td></tr>
 <tr class="separator:aa8a47133ddeb101b0818e80306ba7bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e1e174f0e3a87a4b9bd5043ef58885e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a4e1e174f0e3a87a4b9bd5043ef58885e">edit</a> (gpointer, gpointer)</td></tr>
+<tr class="memdesc:a4e1e174f0e3a87a4b9bd5043ef58885e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per l'edit di una serie.  <a href="#a4e1e174f0e3a87a4b9bd5043ef58885e">Continua...</a><br /></td></tr>
 <tr class="separator:a4e1e174f0e3a87a4b9bd5043ef58885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd25b2dfc925ccfdef8136eff7a3448d"><td class="memItemLeft" align="right" valign="top">GSList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#abd25b2dfc925ccfdef8136eff7a3448d">search_list</a> (GSList *list, const char nome[])</td></tr>
+<tr class="memdesc:abd25b2dfc925ccfdef8136eff7a3448d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione ausiliaria per la ricerca di una corrispondenza all'interno di una lista del nome di una serie.  <a href="#abd25b2dfc925ccfdef8136eff7a3448d">Continua...</a><br /></td></tr>
 <tr class="separator:abd25b2dfc925ccfdef8136eff7a3448d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5910f99ddd9bc05794b912b53e3bb355"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#a5910f99ddd9bc05794b912b53e3bb355">del_list</a> (GSList *&amp;list, GSList *tmp)</td></tr>
-<tr class="separator:a5910f99ddd9bc05794b912b53e3bb355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc7c57bf4427d72c1323951966eb074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manipulation_8h.html#aebc7c57bf4427d72c1323951966eb074">del_list</a> (GSList *&amp;list, GSList *tmp)</td></tr>
+<tr class="memdesc:aebc7c57bf4427d72c1323951966eb074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funzione per la cancellazione di un elemento dalla lista inserita a parametro.  <a href="#aebc7c57bf4427d72c1323951966eb074">Continua...</a><br /></td></tr>
+<tr class="separator:aebc7c57bf4427d72c1323951966eb074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentazione delle funzioni</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
+<div class="textblock"><p>file di header contenente di <a class="el" href="manipulation_8cc.html" title="file contenente le funzioni di manipolazione dati. ">manipulation.cc</a> </p>
+</div><h2 class="groupheader">Documentazione delle funzioni</h2>
+<a id="a5798314f643d5c68227d03763fb76787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5798314f643d5c68227d03763fb76787">&sect;&nbsp;</a></span>bool2text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const gchararray bool2text </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funzione ausiliaria per trasformate i valori booleani contenuti in series (watched e status) in testo. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>testo in entrata </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>ritorna vero se testo = yes e falso se = no </dd></dl>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                      {</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (text) <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;Yes&quot;</span>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;No&quot;</span>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
 <a id="a4870c4f6a597637b1d42cae535f53e0c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4870c4f6a597637b1d42cae535f53e0c">&sect;&nbsp;</a></span>data_to_struct()</h2>
 
@@ -129,49 +160,49 @@ Funzioni</h2></td></tr>
           <td class="memname"><a class="el" href="structseries.html">series</a>* data_to_struct </td>
           <td>(</td>
           <td class="paramtype">const gchararray&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const gchararray&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>last_episode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const gint&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>n_episodes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const gint&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>n_seasons</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const gint&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>year</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const gchararray&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>gen</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">gchararray&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const gchararray&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">gchararray&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">const gchararray&#160;</td>
+          <td class="paramname"><em>watched</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,27 +211,43 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                                 {</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="structseries.html">series</a> *s = <span class="keyword">new</span> <a class="code" href="structseries.html">series</a>;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, name);</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>, last_episode);</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    s-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a> = n_episodes;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    s-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a> = n_seasons;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    s-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a> = year;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, gen);</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    s-&gt;<a class="code" href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">status</a> = <a class="code" href="manipulation_8cc.html#a16722d8a8b9866463e0273964f3086ba">yn_text2int</a>(status);</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    s-&gt;<a class="code" href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">watched</a> = <a class="code" href="manipulation_8cc.html#a16722d8a8b9866463e0273964f3086ba">yn_text2int</a>(watched);</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">//cout &lt;&lt; s-&gt;name &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;last_episode &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;n_episodes &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;n_seasons &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;year &lt;&lt; &quot; &quot; &lt;&lt;</span></div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">//s-&gt;genre &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;status &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;watched &lt;&lt; endl;</span></div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> s;</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:87</div></div>
-<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:75</div></div>
-<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="structseries_html_a77faac03d0bed5bcee70442c9907f6d0"><div class="ttname"><a href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">series::status</a></div><div class="ttdeci">int status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:99</div></div>
-<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:95</div></div>
-<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:83</div></div>
-<div class="ttc" id="structseries_html_a2f4dbf642c2b9ed73da87705d477916f"><div class="ttname"><a href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">series::watched</a></div><div class="ttdeci">int watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:103</div></div>
-<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:79</div></div>
-<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:91</div></div>
-<div class="ttc" id="manipulation_8cc_html_a16722d8a8b9866463e0273964f3086ba"><div class="ttname"><a href="manipulation_8cc.html#a16722d8a8b9866463e0273964f3086ba">yn_text2int</a></div><div class="ttdeci">const int yn_text2int(gchararray watched)</div><div class="ttdef"><b>Definition:</b> manipulation.cc:32</div></div>
+
+<p>Funzione ausiliaria per la creazione di una struct series da dei dati in ingresso. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Nome della serie </td></tr>
+    <tr><td class="paramname">last_episode</td><td>Ultimo episodio </td></tr>
+    <tr><td class="paramname">n_episodes</td><td>Numero episodi totali </td></tr>
+    <tr><td class="paramname">n_seasons</td><td>Numero stagioni </td></tr>
+    <tr><td class="paramname">year</td><td>Anno di uscita della serie </td></tr>
+    <tr><td class="paramname">gen</td><td>Genere della serie </td></tr>
+    <tr><td class="paramname">status</td><td>Flag in corso o terminata </td></tr>
+    <tr><td class="paramname">watched</td><td>Flag in pari o meno </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritora la struct series creata dai dati </dd></dl>
+<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                                 {</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="structseries.html">series</a> *s = <span class="keyword">new</span> <a class="code" href="structseries.html">series</a>;</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, name);</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>, last_episode);</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    s-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a> = n_episodes;</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    s-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a> = n_seasons;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    s-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a> = year;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    strcpy(s-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, gen);</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    s-&gt;<a class="code" href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">status</a> = <a class="code" href="manipulation_8cc.html#ad53306ea61fdebf23bf49507ef329d7d">text2bool</a>(status);</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    s-&gt;<a class="code" href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">watched</a> = <a class="code" href="manipulation_8cc.html#ad53306ea61fdebf23bf49507ef329d7d">text2bool</a>(watched);</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">//cout &lt;&lt; s-&gt;name &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;last_episode &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;n_episodes &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;n_seasons &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;year &lt;&lt; &quot; &quot; &lt;&lt;</span></div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">//s-&gt;genre &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;status &lt;&lt; &quot; &quot; &lt;&lt; s-&gt;watched &lt;&lt; endl;</span></div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">return</span> s;</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:90</div></div>
+<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:98</div></div>
+<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:86</div></div>
+<div class="ttc" id="manipulation_8cc_html_ad53306ea61fdebf23bf49507ef329d7d"><div class="ttname"><a href="manipulation_8cc.html#ad53306ea61fdebf23bf49507ef329d7d">text2bool</a></div><div class="ttdeci">const bool text2bool(gchararray text)</div><div class="ttdoc">Funzione ausiliaria per trasformare del testo in booleano (yes=true, no=false). </div><div class="ttdef"><b>Definition:</b> manipulation.cc:41</div></div>
+<div class="ttc" id="structseries_html_aa15aae4ce940a2a9c077c10bd6f8096d"><div class="ttname"><a href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">series::watched</a></div><div class="ttdeci">bool watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:106</div></div>
+<div class="ttc" id="structseries_html_a8cfb1e8e67fd8cfd8434ded83282192c"><div class="ttname"><a href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">series::status</a></div><div class="ttdeci">bool status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:102</div></div>
+<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:82</div></div>
+<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:94</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a5910f99ddd9bc05794b912b53e3bb355"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5910f99ddd9bc05794b912b53e3bb355">&sect;&nbsp;</a></span>del_list()</h2>
+<a id="aebc7c57bf4427d72c1323951966eb074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc7c57bf4427d72c1323951966eb074">&sect;&nbsp;</a></span>del_list()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool del_list </td>
+          <td class="memname">void del_list </td>
           <td>(</td>
           <td class="paramtype">GSList *&amp;&#160;</td>
           <td class="paramname"><em>list</em>, </td>
@@ -218,57 +265,20 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;{</div><div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    list=g_slist_remove_link (list,tmp);</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    g_slist_free_1 (tmp);</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="aedbaf7157643a95da87295796aa81732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedbaf7157643a95da87295796aa81732">&sect;&nbsp;</a></span>edit() <span class="overload">[1/2]</span></h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool edit </td>
-          <td>(</td>
-          <td class="paramtype">GSList *&amp;&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>name</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">GSList *&#160;</td>
-          <td class="paramname"><em>tmp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>status</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
+<p>Funzione per la cancellazione di un elemento dalla lista inserita a parametro. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>La lista da cui cancellare l'. </td></tr>
+    <tr><td class="paramname">tmp</td><td>L'elemento da cancellare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;{</div><div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    list=g_slist_remove_link (list,tmp);</div><div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    g_slist_free_1 (tmp);</div><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a4e1e174f0e3a87a4b9bd5043ef58885e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e1e174f0e3a87a4b9bd5043ef58885e">&sect;&nbsp;</a></span>edit() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1e174f0e3a87a4b9bd5043ef58885e">&sect;&nbsp;</a></span>edit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,13 +287,13 @@ Funzioni</h2></td></tr>
           <td class="memname">void edit </td>
           <td>(</td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>pold</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>pedit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -292,19 +302,28 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                                        {</div><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;dentro edit in foreach&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <a class="code" href="structseries.html">series</a>* old = (<a class="code" href="structseries.html">series</a> *) pold;</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <a class="code" href="structn__search__gtk.html">n_search_gtk</a>* data = (<a class="code" href="structn__search__gtk.html">n_search_gtk</a> *) pedit;</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <a class="code" href="structseries.html">series</a>* edited = data-&gt;<a class="code" href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">edited</a>;</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;old-&gt;name: &quot;</span> &lt;&lt; old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl;</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;edited-&gt;name: &quot;</span> &lt;&lt; edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl);</div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">if</span>(!strcasecmp(old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, data-&gt;<a class="code" href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">name</a>)){</div><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>);</div><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>, edited-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>);</div><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        old-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a> = edited-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a>;</div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        old-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a> = edited-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a>;</div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        old-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a> = edited-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a>;</div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, edited-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>);</div><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        old-&gt;<a class="code" href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">status</a>=edited-&gt;<a class="code" href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">status</a>;</div><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        old-&gt;<a class="code" href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">watched</a>=edited-&gt;<a class="code" href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">watched</a>;</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span>;</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:87</div></div>
-<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:75</div></div>
-<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="structseries_html_a77faac03d0bed5bcee70442c9907f6d0"><div class="ttname"><a href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">series::status</a></div><div class="ttdeci">int status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:99</div></div>
-<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:95</div></div>
-<div class="ttc" id="structn__search__gtk_html"><div class="ttname"><a href="structn__search__gtk.html">n_search_gtk</a></div><div class="ttdoc">Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist. </div><div class="ttdef"><b>Definition:</b> struct.h:109</div></div>
-<div class="ttc" id="structn__search__gtk_html_aa0193fff5cb088cead1b9085a527bdde"><div class="ttname"><a href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">n_search_gtk::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> struct.h:110</div></div>
-<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:83</div></div>
-<div class="ttc" id="structseries_html_a2f4dbf642c2b9ed73da87705d477916f"><div class="ttname"><a href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">series::watched</a></div><div class="ttdeci">int watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:103</div></div>
-<div class="ttc" id="structn__search__gtk_html_ae6e676895f93e1884e3e261b5b2b03b8"><div class="ttname"><a href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">n_search_gtk::edited</a></div><div class="ttdeci">series * edited</div><div class="ttdef"><b>Definition:</b> struct.h:112</div></div>
-<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
-<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:79</div></div>
-<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:91</div></div>
+
+<p>Funzione per l'edit di una serie. </p>
+<p>In ingresso prende oltre alle 2 serie (la vecchia e la modificata) anche il nome usato per la ricerca delle serie. Modifica la serie "old" il cui nome corrisponde con il parametro di ricerca passato. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pold</td><td>Serie da controllare e, se corrisponde, modificare. Passata da g_slist_foreach. </td></tr>
+    <tr><td class="paramname">pedit</td><td>Struttura contenente la nuova serie e il nome per effettuare confronto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                                        {</div><div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;dentro edit in foreach&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="structseries.html">series</a>* old = (<a class="code" href="structseries.html">series</a> *) pold;</div><div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="structn__search__gtk.html">n_search_gtk</a>* data = (<a class="code" href="structn__search__gtk.html">n_search_gtk</a> *) pedit;</div><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="structseries.html">series</a>* edited = data-&gt;<a class="code" href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">edited</a>;</div><div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;old-&gt;name: &quot;</span> &lt;&lt; old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl;</div><div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;edited-&gt;name: &quot;</span> &lt;&lt; edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl);</div><div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span>(!strcasecmp(old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, data-&gt;<a class="code" href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">name</a>)){</div><div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>);</div><div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>, edited-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>);</div><div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        old-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a> = edited-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a>;</div><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        old-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a> = edited-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a>;</div><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        old-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a> = edited-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a>;</div><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        strcpy(old-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, edited-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>);</div><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        old-&gt;<a class="code" href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">status</a>=edited-&gt;<a class="code" href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">status</a>;</div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        old-&gt;<a class="code" href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">watched</a>=edited-&gt;<a class="code" href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">watched</a>;</div><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">return</span>;</div><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:90</div></div>
+<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:98</div></div>
+<div class="ttc" id="structn__search__gtk_html"><div class="ttname"><a href="structn__search__gtk.html">n_search_gtk</a></div><div class="ttdoc">Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist. </div><div class="ttdef"><b>Definition:</b> struct.h:112</div></div>
+<div class="ttc" id="structn__search__gtk_html_aa0193fff5cb088cead1b9085a527bdde"><div class="ttname"><a href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">n_search_gtk::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> struct.h:113</div></div>
+<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:86</div></div>
+<div class="ttc" id="structn__search__gtk_html_ae6e676895f93e1884e3e261b5b2b03b8"><div class="ttname"><a href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">n_search_gtk::edited</a></div><div class="ttdeci">series * edited</div><div class="ttdef"><b>Definition:</b> struct.h:115</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
+<div class="ttc" id="structseries_html_aa15aae4ce940a2a9c077c10bd6f8096d"><div class="ttname"><a href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">series::watched</a></div><div class="ttdeci">bool watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:106</div></div>
+<div class="ttc" id="structseries_html_a8cfb1e8e67fd8cfd8434ded83282192c"><div class="ttname"><a href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">series::status</a></div><div class="ttdeci">bool status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:102</div></div>
+<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:82</div></div>
+<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:94</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -336,7 +355,7 @@ Funzioni</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramname"><em>psearch</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -345,26 +364,36 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                 {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="structn__search__gtk.html">n_search_gtk</a> *<a class="code" href="manipulation_8cc.html#af9e73f88138ede7b8f29b51d97c6ae32">search</a> = (<a class="code" href="structn__search__gtk.html">n_search_gtk</a> *) psearch;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">char</span> *name_searched = search-&gt;<a class="code" href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">name</a>;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test nome in find_tw: &quot;</span> &lt;&lt; name_searched &lt;&lt; endl);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> mode = search-&gt;<a class="code" href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">mode</a>;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test mode in find_tw: &quot;</span> &lt;&lt; search-&gt;<a class="code" href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">mode</a> &lt;&lt; endl);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    gchararray name;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    GtkListStore *listStore = GTK_LIST_STORE(model);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    gtk_tree_model_get(model, iter, <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>, &amp;name, -1);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span>(!strcmp(name_searched, name)){</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">switch</span> (mode) {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a>: {</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                gtk_list_store_remove(listStore, iter);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a>: {</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;testo ingresso in EDIT_MODE di edit_tw&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <a class="code" href="structseries.html">series</a> *edited = search-&gt;<a class="code" href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">edited</a>;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test del contenuto di edited in EDIT_MODE dopo assegnamento prima di list_store_set&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                gtk_list_store_set(listStore, iter, 0, edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>,</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                   1, edited-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>,</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                   2, edited-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a>,</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                   3, edited-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a>,</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                   4, edited-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a>,</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                   5, edited-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>,</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                   6, <a class="code" href="manipulation_8cc.html#aa49f1fc7ca359415c142dd1b6216c341">status_int2text</a>(edited-&gt;<a class="code" href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">status</a>),</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                   7, <a class="code" href="manipulation_8cc.html#a973eba7d41ab904a88266df84ec728c2">watched_int2text</a>(edited-&gt;<a class="code" href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">watched</a>),</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                   -1);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">default</span>:;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> FALSE;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:87</div></div>
-<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:64</div></div>
-<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:75</div></div>
-<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:65</div></div>
-<div class="ttc" id="manipulation_8cc_html_a973eba7d41ab904a88266df84ec728c2"><div class="ttname"><a href="manipulation_8cc.html#a973eba7d41ab904a88266df84ec728c2">watched_int2text</a></div><div class="ttdeci">const gchararray watched_int2text(int watched)</div><div class="ttdef"><b>Definition:</b> manipulation.cc:20</div></div>
-<div class="ttc" id="structseries_html_a77faac03d0bed5bcee70442c9907f6d0"><div class="ttname"><a href="structseries.html#a77faac03d0bed5bcee70442c9907f6d0">series::status</a></div><div class="ttdeci">int status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:99</div></div>
-<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:95</div></div>
-<div class="ttc" id="structn__search__gtk_html"><div class="ttname"><a href="structn__search__gtk.html">n_search_gtk</a></div><div class="ttdoc">Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist. </div><div class="ttdef"><b>Definition:</b> struct.h:109</div></div>
-<div class="ttc" id="structn__search__gtk_html_aa0193fff5cb088cead1b9085a527bdde"><div class="ttname"><a href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">n_search_gtk::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> struct.h:110</div></div>
-<div class="ttc" id="manipulation_8cc_html_af9e73f88138ede7b8f29b51d97c6ae32"><div class="ttname"><a href="manipulation_8cc.html#af9e73f88138ede7b8f29b51d97c6ae32">search</a></div><div class="ttdeci">GSList * search(GSList *list, const int selection, const char *label)</div><div class="ttdef"><b>Definition:</b> manipulation.cc:206</div></div>
-<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:83</div></div>
-<div class="ttc" id="structseries_html_a2f4dbf642c2b9ed73da87705d477916f"><div class="ttname"><a href="structseries.html#a2f4dbf642c2b9ed73da87705d477916f">series::watched</a></div><div class="ttdeci">int watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno (1 o 0) </div><div class="ttdef"><b>Definition:</b> struct.h:103</div></div>
-<div class="ttc" id="structn__search__gtk_html_ae6e676895f93e1884e3e261b5b2b03b8"><div class="ttname"><a href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">n_search_gtk::edited</a></div><div class="ttdeci">series * edited</div><div class="ttdef"><b>Definition:</b> struct.h:112</div></div>
-<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
-<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:79</div></div>
-<div class="ttc" id="manipulation_8cc_html_aa49f1fc7ca359415c142dd1b6216c341"><div class="ttname"><a href="manipulation_8cc.html#aa49f1fc7ca359415c142dd1b6216c341">status_int2text</a></div><div class="ttdeci">const gchararray status_int2text(int status)</div><div class="ttdef"><b>Definition:</b> manipulation.cc:15</div></div>
-<div class="ttc" id="structn__search__gtk_html_a4406b8ca87c0ddc4e4b8b62ee1e15b27"><div class="ttname"><a href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">n_search_gtk::mode</a></div><div class="ttdeci">int mode</div><div class="ttdef"><b>Definition:</b> struct.h:111</div></div>
-<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:91</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:51</div></div>
+
+<p>Funzione generica per la ricerca di una serie all'interno di una treeview. </p>
+<p>Accetta in ingresso più dati per determinare cosa si voglia fare con la serie ricercata Supporta sia la cancellazione di una serie sia l'editing. Deprecata. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>TreeModel su cui fare ricerca </td></tr>
+    <tr><td class="paramname">path</td><td>Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach) </td></tr>
+    <tr><td class="paramname">iter</td><td>Indicatore di linea attraversata </td></tr>
+    <tr><td class="paramname">psearch</td><td>Struttura dati contenente la serie e la modalità in cui si vuol fare funzionare la funzione (EDIT_MODE, DEL_MODE) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna vero se la serie è stata trovata e l'operazione richiesta è stata effettuata con successo. Falso altrimenti. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                 {</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="structn__search__gtk.html">n_search_gtk</a> *search = (<a class="code" href="structn__search__gtk.html">n_search_gtk</a> *) psearch;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">char</span> *name_searched = search-&gt;<a class="code" href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">name</a>;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test nome in find_tw: &quot;</span> &lt;&lt; name_searched &lt;&lt; endl);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> mode = search-&gt;<a class="code" href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">mode</a>;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test mode in find_tw: &quot;</span> &lt;&lt; search-&gt;<a class="code" href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">mode</a> &lt;&lt; endl);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    gchararray name;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    GtkListStore *listStore = GTK_LIST_STORE(model);</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    gtk_tree_model_get(model, iter, <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>, &amp;name, -1);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(!strcmp(name_searched, name)){</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">switch</span> (mode) {</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a>: {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                gtk_list_store_remove(listStore, iter);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a>: {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;testo ingresso in EDIT_MODE di edit_tw&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <a class="code" href="structseries.html">series</a> *edited = search-&gt;<a class="code" href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">edited</a>;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;test del contenuto di edited in EDIT_MODE dopo assegnamento prima di list_store_set&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                gtk_list_store_set(listStore, iter, 0, edited-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>,</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                   1, edited-&gt;<a class="code" href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">last_episode</a>,</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                   2, edited-&gt;<a class="code" href="structseries.html#aac041951936b6ef9def20011951634e4">n_episodes</a>,</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                   3, edited-&gt;<a class="code" href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">n_seasons</a>,</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                   4, edited-&gt;<a class="code" href="structseries.html#a030af107939cc9356c9003934dd6613b">year</a>,</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                   5, edited-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>,</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                   6, <a class="code" href="manipulation_8cc.html#a5798314f643d5c68227d03763fb76787">bool2text</a>(edited-&gt;<a class="code" href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">status</a>),</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                   7, <a class="code" href="manipulation_8cc.html#a5798314f643d5c68227d03763fb76787">bool2text</a>(edited-&gt;<a class="code" href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">watched</a>),</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                   -1);</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            }</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">default</span>:;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> FALSE;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div><div class="ttc" id="structseries_html_a5f0d826644fb78324b12627f857c4bd6"><div class="ttname"><a href="structseries.html#a5f0d826644fb78324b12627f857c4bd6">series::n_seasons</a></div><div class="ttdeci">gint n_seasons</div><div class="ttdoc">Il numero di stagioni uscite ad oggi. </div><div class="ttdef"><b>Definition:</b> struct.h:90</div></div>
+<div class="ttc" id="manipulation_8cc_html_a5798314f643d5c68227d03763fb76787"><div class="ttname"><a href="manipulation_8cc.html#a5798314f643d5c68227d03763fb76787">bool2text</a></div><div class="ttdeci">const gchararray bool2text(bool text)</div><div class="ttdoc">Funzione ausiliaria per trasformate i valori booleani contenuti in series (watched e status) in testo...</div><div class="ttdef"><b>Definition:</b> manipulation.cc:21</div></div>
+<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa48aaadb6bb81d89f73852e8813bff11b">DEL_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:67</div></div>
+<div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="struct_8h_html_afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b"><div class="ttname"><a href="struct_8h.html#afd24b85c565d24d9fdaa4e1144e5f78aa0d8908fb7bb65f2713caa476b2d0e93b">EDIT_MODE</a></div><div class="ttdef"><b>Definition:</b> struct.h:68</div></div>
+<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:98</div></div>
+<div class="ttc" id="structn__search__gtk_html"><div class="ttname"><a href="structn__search__gtk.html">n_search_gtk</a></div><div class="ttdoc">Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist. </div><div class="ttdef"><b>Definition:</b> struct.h:112</div></div>
+<div class="ttc" id="structn__search__gtk_html_aa0193fff5cb088cead1b9085a527bdde"><div class="ttname"><a href="structn__search__gtk.html#aa0193fff5cb088cead1b9085a527bdde">n_search_gtk::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> struct.h:113</div></div>
+<div class="ttc" id="structseries_html_aac041951936b6ef9def20011951634e4"><div class="ttname"><a href="structseries.html#aac041951936b6ef9def20011951634e4">series::n_episodes</a></div><div class="ttdeci">gint n_episodes</div><div class="ttdoc">Il numero di episodi fin qui andati in onda. </div><div class="ttdef"><b>Definition:</b> struct.h:86</div></div>
+<div class="ttc" id="structn__search__gtk_html_ae6e676895f93e1884e3e261b5b2b03b8"><div class="ttname"><a href="structn__search__gtk.html#ae6e676895f93e1884e3e261b5b2b03b8">n_search_gtk::edited</a></div><div class="ttdeci">series * edited</div><div class="ttdef"><b>Definition:</b> struct.h:115</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
+<div class="ttc" id="structseries_html_aa15aae4ce940a2a9c077c10bd6f8096d"><div class="ttname"><a href="structseries.html#aa15aae4ce940a2a9c077c10bd6f8096d">series::watched</a></div><div class="ttdeci">bool watched</div><div class="ttdoc">Variabile che indica se la serie è stata vista o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:106</div></div>
+<div class="ttc" id="structseries_html_a8cfb1e8e67fd8cfd8434ded83282192c"><div class="ttname"><a href="structseries.html#a8cfb1e8e67fd8cfd8434ded83282192c">series::status</a></div><div class="ttdeci">bool status</div><div class="ttdoc">Variabile che indica se la serie è conclusa o meno boolean. </div><div class="ttdef"><b>Definition:</b> struct.h:102</div></div>
+<div class="ttc" id="structseries_html_a2796796f975d3e06b6610b6c342c56f7"><div class="ttname"><a href="structseries.html#a2796796f975d3e06b6610b6c342c56f7">series::last_episode</a></div><div class="ttdeci">char last_episode[LENGTH]</div><div class="ttdoc">L&amp;#39;ultimo episodio andato in onda (si suggerisce un formato del tipo 01x03 (stagione numero x episodio...</div><div class="ttdef"><b>Definition:</b> struct.h:82</div></div>
+<div class="ttc" id="structn__search__gtk_html_a4406b8ca87c0ddc4e4b8b62ee1e15b27"><div class="ttname"><a href="structn__search__gtk.html#a4406b8ca87c0ddc4e4b8b62ee1e15b27">n_search_gtk::mode</a></div><div class="ttdeci">int mode</div><div class="ttdef"><b>Definition:</b> struct.h:114</div></div>
+<div class="ttc" id="structseries_html_a030af107939cc9356c9003934dd6613b"><div class="ttname"><a href="structseries.html#a030af107939cc9356c9003934dd6613b">series::year</a></div><div class="ttdeci">gint year</div><div class="ttdoc">L&amp;#39;anno di uscita della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:94</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -396,7 +425,7 @@ Funzioni</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramname"><em>pseries</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -405,39 +434,21 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                    {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//GSList** pList = (GSList **) plist;</span></div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//GSList* &amp;list = *pList;</span></div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structseries.html">series</a> *s = (<a class="code" href="structseries.html">series</a> *) pseries;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">char</span> *name_searched = s-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    gchararray name;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    gtk_tree_model_get(model, iter, <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>, &amp;name, -1);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(!strcmp(name_searched, name)){</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        GtkListStore *listStore = GTK_LIST_STORE(model);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        gtk_list_store_remove(listStore, iter);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> FALSE;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:75</div></div>
-<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:51</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a23ffb73b3b258afb55c3ce759e8ec04d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23ffb73b3b258afb55c3ce759e8ec04d">&sect;&nbsp;</a></span>insert_series()</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void insert_series </td>
-          <td>(</td>
-          <td class="paramtype">GSList *&amp;&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structseries.html">series</a> *&#160;</td>
-          <td class="paramname"><em>s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                               {</div><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;**************************&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;dentro insert_series&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="structseries.html">series</a> *s = <span class="keyword">new</span> <a class="code" href="structseries.html">series</a>;</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    s = sin;</div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; s-&gt;name &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;last_episode &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;n_episodes &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;n_seasons &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;year &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt;</div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    s-&gt;genre &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;status &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; s-&gt;watched &lt;&lt; endl);</div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    list = g_slist_append(list, s);</div><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; ((<a class="code" href="structseries.html">series</a> *)list-&gt;data)-&gt;name &lt;&lt; endl;</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;**********&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div><div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
+<p>Funzione per cancellare una riga da un listStore data una serie in inngresso. </p>
+<p>Funzione non attualmente utilizzata. Alternativa al modello proposto ora. Invece di cancellare elemento da lista e refreshare la treeview viene direttamente modificata la treeview. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>TreeModel da ispezionare </td></tr>
+    <tr><td class="paramname">path</td><td>Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach) </td></tr>
+    <tr><td class="paramname">iter</td><td>Indicatore di linea attraversata </td></tr>
+    <tr><td class="paramname">pseries</td><td>Serie da confrontare ed eliminare passata come gpointer generico. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna vero se la serie è stata trovata ed eliminata con successo. Falso altrimenti. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                    {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//GSList** pList = (GSList **) plist;</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//GSList* &amp;list = *pList;</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="structseries.html">series</a> *s = (<a class="code" href="structseries.html">series</a> *) pseries;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">char</span> *name_searched = s-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    gchararray name;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    gtk_tree_model_get(model, iter, <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>, &amp;name, -1);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span>(!strcmp(name_searched, name)){</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GtkListStore *listStore = GTK_LIST_STORE(model);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        gtk_list_store_remove(listStore, iter);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> FALSE;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div><div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -451,51 +462,41 @@ Funzioni</h2></td></tr>
           <td class="memname">const char* itochar </td>
           <td>(</td>
           <td class="paramtype">gint&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">string</span> str = to_string(number);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* text = str.c_str();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;text in itochar: &quot;</span> &lt;&lt; text &lt;&lt; endl);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> text;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
+
+<p>Funzione ausiliaria per trasformare un integer nel medesimo numero in formato char*. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>numero intero in ingresso </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna il numero in formato char* </dd></dl>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">string</span> str = to_string(number);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* text = str.c_str();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;text in itochar: &quot;</span> &lt;&lt; text &lt;&lt; endl);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> text;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div><div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a8e3ed45c0f2dcaaa25e11c47e4f495a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e3ed45c0f2dcaaa25e11c47e4f495a2">&sect;&nbsp;</a></span>print_name_test()</h2>
+<a id="a0105e51722f910f047a0f1e2dcf93992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0105e51722f910f047a0f1e2dcf93992">&sect;&nbsp;</a></span>s_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_name_test </td>
+          <td class="memname">void s_data </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structseries.html">series</a> *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                                   {</div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; serie-&gt;name &lt;&lt; endl);</div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;}</div><div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ac605bf6bf30d308ae34e2a1c3f352981"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac605bf6bf30d308ae34e2a1c3f352981">&sect;&nbsp;</a></span>pure_char_string_conv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pure_char_string_conv </td>
-          <td>(</td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>name</em>[], </td>
+          <td class="paramname"><em>serie</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>new_name</em>[]&#160;</td>
+          <td class="paramtype">gpointer&#160;</td>
+          <td class="paramname"><em>pdata</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -505,59 +506,24 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a627dff6e76f8129ce89f838a95276031"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a627dff6e76f8129ce89f838a95276031">&sect;&nbsp;</a></span>search()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GSList* search </td>
-          <td>(</td>
-          <td class="paramtype">GSList *&#160;</td>
-          <td class="paramname"><em>l_found</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>selection</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                                                                     {</div><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="ae0f637a699ba4ef191bda9fef00c1138"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f637a699ba4ef191bda9fef00c1138">&sect;&nbsp;</a></span>search_conv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int search_conv </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>label</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                   {</div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Name&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>;</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Genre&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>;</div><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div><div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:56</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:51</div></div>
+<p>Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). </p>
+<p>Pensata per gestire molteplici criteri di ricerca Deprecata. Al momento non funziona. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serie</td><td>Serie passata dalla funzione g_slist_foreach in cui questa funzione è utilizzata </td></tr>
+    <tr><td class="paramname">pdata</td><td>puntatore a struct <a class="el" href="structsearch__data.html" title="Struttura di supporto per passare le informazioni nei foreach di g_slist. ">search_data</a> contenente il testo da ricercare e il campo in cui ricercarlo (sotto forma di intero) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                                          {</div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <a class="code" href="structsearch__data.html">search_data</a>* data = (<a class="code" href="structsearch__data.html">search_data</a> *) pdata;</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout&lt;&lt;<span class="stringliteral">&quot;name in s_data: &quot;</span>&lt;&lt; data-&gt;<a class="code" href="structsearch__data.html#acddef8a1818fa29e97e292fa80bcc7f7">text</a>&lt;&lt;endl;</div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        cout &lt;&lt;<span class="stringliteral">&quot;mode in s_data: &quot;</span>&lt;&lt; data-&gt;<a class="code" href="structsearch__data.html#ae1a8172a637377759e3a898f132cf4a5">mode</a>&lt;&lt;endl;)</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        if(data-&gt;mode==<a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>){</div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;name in sname:&quot;</span> &lt;&lt; data-&gt;<a class="code" href="structsearch__data.html#acddef8a1818fa29e97e292fa80bcc7f7">text</a> &lt;&lt; endl;</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                        cout &lt;&lt; <span class="stringliteral">&quot;serie-&gt;name:&quot;</span> &lt;&lt; serie-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl);</div><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">if</span>(strcasestr(serie-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, data-&gt;<a class="code" href="structsearch__data.html#acddef8a1818fa29e97e292fa80bcc7f7">text</a>)){</div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, serie);</div><div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;found&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <a class="code" href="structseries.html">series</a>* testsearch = (<a class="code" href="structseries.html">series</a> *) <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>-&gt;data;</div><div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;name in l_found&quot;</span> &lt;&lt; testsearch-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl);</div><div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            }</div><div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        }</div><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">if</span>(data-&gt;<a class="code" href="structsearch__data.html#ae1a8172a637377759e3a898f132cf4a5">mode</a>==<a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>){</div><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keywordflow">if</span>(strcasestr(serie-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, data-&gt;<a class="code" href="structsearch__data.html#acddef8a1818fa29e97e292fa80bcc7f7">text</a>)){</div><div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, serie);</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            }</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        }</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;}</div><div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="structsearch__data_html"><div class="ttname"><a href="structsearch__data.html">search_data</a></div><div class="ttdoc">Struttura di supporto per passare le informazioni nei foreach di g_slist. </div><div class="ttdef"><b>Definition:</b> struct.h:120</div></div>
+<div class="ttc" id="manipulation_8cc_html_a7ff26878b618221ab09e65a119efc51b"><div class="ttname"><a href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a></div><div class="ttdeci">GSList * l_found</div><div class="ttdoc">Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate da determinati p...</div><div class="ttdef"><b>Definition:</b> handlers.cc:28</div></div>
+<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:98</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:59</div></div>
+<div class="ttc" id="structsearch__data_html_acddef8a1818fa29e97e292fa80bcc7f7"><div class="ttname"><a href="structsearch__data.html#acddef8a1818fa29e97e292fa80bcc7f7">search_data::text</a></div><div class="ttdeci">char * text</div><div class="ttdef"><b>Definition:</b> struct.h:121</div></div>
+<div class="ttc" id="structsearch__data_html_ae1a8172a637377759e3a898f132cf4a5"><div class="ttname"><a href="structsearch__data.html#ae1a8172a637377759e3a898f132cf4a5">search_data::mode</a></div><div class="ttdeci">int mode</div><div class="ttdef"><b>Definition:</b> struct.h:122</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -586,8 +552,18 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    GSList* tmp = list;</div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">while</span> (tmp != NULL)  {</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">if</span> (!strcmp(((<a class="code" href="structseries.html">series</a>*) tmp-&gt;data)-&gt;name, nome)){</div><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout&lt;&lt;<span class="stringliteral">&quot;trovato&quot;</span>&lt;&lt;endl);</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">return</span> tmp;</div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        }</div><div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        tmp=g_slist_next(tmp);</div><div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div><div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">return</span> NULL;</div><div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}</div><div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
+
+<p>Funzione ausiliaria per la ricerca di una corrispondenza all'interno di una lista del nome di una serie. </p>
+<p>Utilizzata per la cancellazione di un nodo dalla lista. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Lista su cui effettuare la ricerca. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome da confrontare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna l'elemento trovato se confronto è positivo </dd></dl>
+<div class="fragment"><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                                                     {</div><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    GSList* tmp = list;</div><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">while</span> (tmp != NULL)  {</div><div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">if</span> (!strcmp(((<a class="code" href="structseries.html">series</a>*) tmp-&gt;data)-&gt;name, nome)){</div><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout&lt;&lt;<span class="stringliteral">&quot;trovato&quot;</span>&lt;&lt;endl);</div><div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="keywordflow">return</span> tmp;</div><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        }</div><div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        tmp=g_slist_next(tmp);</div><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    }</div><div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordflow">return</span> NULL;</div><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;}</div><div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:74</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -601,13 +577,13 @@ Funzioni</h2></td></tr>
           <td class="memname">void sgenre </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structseries.html">series</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>serie</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>pgenre</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -616,7 +592,18 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                                           {</div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* genre = (<span class="keyword">const</span> <span class="keywordtype">char</span> *) pgenre;</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">if</span>(strcasestr(serie-&gt;genre, genre)){</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, serie);</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div><div class="ttc" id="manipulation_8cc_html_a7ff26878b618221ab09e65a119efc51b"><div class="ttname"><a href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a></div><div class="ttdeci">GSList * l_found</div><div class="ttdoc">Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate da determinati p...</div><div class="ttdef"><b>Definition:</b> handlers.cc:25</div></div>
+
+<p>Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). </p>
+<p>Il criterio di ricerca è che la stringe di caratteri fornita compaia all'interno del campo serie-&gt;genre. case insensitive. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serie</td><td>La serie in cui cercare una corrispondenza, passata da g_slist_foreach </td></tr>
+    <tr><td class="paramname">pgenre</td><td>La serie di caratteri da ricercare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                                           {</div><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">char</span>* genre = (<span class="keywordtype">char</span> *) pgenre;</div><div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;genre in sname: &quot;</span> &lt;&lt; genre &lt;&lt; endl);</div><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">if</span>(strcasestr(serie-&gt;<a class="code" href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">genre</a>, genre)){</div><div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, (gpointer) serie);</div><div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div><div class="ttc" id="manipulation_8cc_html_a7ff26878b618221ab09e65a119efc51b"><div class="ttname"><a href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a></div><div class="ttdeci">GSList * l_found</div><div class="ttdoc">Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate da determinati p...</div><div class="ttdef"><b>Definition:</b> handlers.cc:28</div></div>
+<div class="ttc" id="structseries_html_a090f911e955a5e2c1f331ea40c7a1446"><div class="ttname"><a href="structseries.html#a090f911e955a5e2c1f331ea40c7a1446">series::genre</a></div><div class="ttdeci">char genre[LENGTH]</div><div class="ttdoc">Il genere della serie. </div><div class="ttdef"><b>Definition:</b> struct.h:98</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -630,13 +617,13 @@ Funzioni</h2></td></tr>
           <td class="memname">void sname </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structseries.html">series</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>serie</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>pname</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -645,10 +632,18 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                                         {</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* name =(<span class="keyword">const</span> <span class="keywordtype">char</span> *) pname;</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;name in sname:&quot;</span> &lt;&lt; name &lt;&lt; endl;</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;serie-&gt;name:&quot;</span> &lt;&lt; serie-&gt;name &lt;&lt; endl);</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span>(strcasestr(serie-&gt;name, name)){</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, serie);</div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;found&quot;</span> &lt;&lt; endl);</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <a class="code" href="structseries.html">series</a>* testsearch = (<a class="code" href="structseries.html">series</a> *) <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>-&gt;data;</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;name in l_found&quot;</span> &lt;&lt; testsearch-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a> &lt;&lt; endl);</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div><div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:75</div></div>
-<div class="ttc" id="structseries_html"><div class="ttname"><a href="structseries.html">series</a></div><div class="ttdoc">Struttura base per la creazione delle serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:71</div></div>
-<div class="ttc" id="manipulation_8cc_html_a7ff26878b618221ab09e65a119efc51b"><div class="ttname"><a href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a></div><div class="ttdeci">GSList * l_found</div><div class="ttdoc">Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate da determinati p...</div><div class="ttdef"><b>Definition:</b> handlers.cc:25</div></div>
-<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:11</div></div>
+
+<p>Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). </p>
+<p>Il criterio di ricerca è che la stringe di caratteri fornita compaia all'interno del campo serie-&gt;name. case insensitive. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serie</td><td>La serie in cui cercare una corrispondenza, passata da g_slist_foreach </td></tr>
+    <tr><td class="paramname">pname</td><td>La serie di caratteri da ricercare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                                         {</div><div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">char</span>* name = (<span class="keywordtype">char</span> *) pname;</div><div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <a class="code" href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a>(cout &lt;&lt; <span class="stringliteral">&quot;name in sname: &quot;</span> &lt;&lt; name &lt;&lt; endl);</div><div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">if</span>(strcasestr(serie-&gt;<a class="code" href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">name</a>, name)){</div><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a> = g_slist_append(<a class="code" href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a>, (gpointer) serie);</div><div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div><div class="ttc" id="structseries_html_ad6fd9bc06e8a7ca811b8db0a8af034b6"><div class="ttname"><a href="structseries.html#ad6fd9bc06e8a7ca811b8db0a8af034b6">series::name</a></div><div class="ttdeci">char name[LENGTH]</div><div class="ttdoc">Il nome della serie tv. </div><div class="ttdef"><b>Definition:</b> struct.h:78</div></div>
+<div class="ttc" id="manipulation_8cc_html_a7ff26878b618221ab09e65a119efc51b"><div class="ttname"><a href="manipulation_8cc.html#a7ff26878b618221ab09e65a119efc51b">l_found</a></div><div class="ttdeci">GSList * l_found</div><div class="ttdoc">Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate da determinati p...</div><div class="ttdef"><b>Definition:</b> handlers.cc:28</div></div>
+<div class="ttc" id="struct_8h_html_af9daf8fa9b1aa8d19df9e06f33871a7e"><div class="ttname"><a href="struct_8h.html#af9daf8fa9b1aa8d19df9e06f33871a7e">DEB</a></div><div class="ttdeci">#define DEB(a)</div><div class="ttdef"><b>Definition:</b> struct.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -668,7 +663,7 @@ Funzioni</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>picked</em>&#160;</td>
+          <td class="paramname"><em>selection</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -677,7 +672,17 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                                          {</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    gpointer sel = (gpointer) selection;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    list = g_slist_sort_with_data(list, (GCompareDataFunc) compare, sel);</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">return</span> list;</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div></div><!-- fragment -->
+
+<p>Funzione per l'ordinamento di una lista in ingresso. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>La lista da ordinare </td></tr>
+    <tr><td class="paramname">selection</td><td>Il criterio su cui ordinare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna la lista ordinata </dd></dl>
+<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                                          {</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    gpointer sel = (gpointer) selection;</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    list = g_slist_sort_with_data(list, (GCompareDataFunc) compare, sel);</div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> list;</div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="aae3cd7e39786d917aa90200abf70d53f"></a>
@@ -690,73 +695,28 @@ Funzioni</h2></td></tr>
           <td class="memname">int sort_menu_conv </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>label</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                                      {</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Name&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>;</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Year&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a>;</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Genre&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>;</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Number of Episodes&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a>;</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Watched&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a>;</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Status&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a>;</div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Number of Seasons&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a>;</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div><div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a></div><div class="ttdef"><b>Definition:</b> struct.h:57</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a></div><div class="ttdef"><b>Definition:</b> struct.h:55</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:56</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:53</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="ttdef"><b>Definition:</b> struct.h:58</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
-<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:51</div></div>
+
+<p>Funzione ausiliaria per l'ordinamento di una lista in base alla label passata. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>Definisce su cosa lavorare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Ritorna un valore numerico corrispondente alla label. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                                      {</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Name&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a>;</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Year&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a>;</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Genre&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a>;</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Number of Episodes&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a>;</div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Watched&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a>;</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Status&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a>;</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">if</span> (!strcmp(label, <span class="stringliteral">&quot;Number of Seasons&quot;</span>)) <span class="keywordflow">return</span> <a class="code" href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a>;</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div><div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa60d63d1c4fa873490219f8271ca97881">COL_STAT</a></div><div class="ttdef"><b>Definition:</b> struct.h:60</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa3b57998f531569a2b7aa302a904367a5">COL_YEAR</a></div><div class="ttdef"><b>Definition:</b> struct.h:58</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab2f6de4ff1c89e2c031645e5e98f2584">COL_GEN</a></div><div class="ttdef"><b>Definition:</b> struct.h:59</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aadb1d4d3441e5e009f7d7613e48ea5a56">COL_N_EP</a></div><div class="ttdef"><b>Definition:</b> struct.h:56</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa4158d3d3cad6ff4cd36fa90ac948c85f">COL_WATCHED</a></div><div class="ttdef"><b>Definition:</b> struct.h:61</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aab8b8ae4e67e9f261d8353616a97bbdfe">COL_N_S</a></div><div class="ttdef"><b>Definition:</b> struct.h:57</div></div>
+<div class="ttc" id="struct_8h_html_a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24"><div class="ttname"><a href="struct_8h.html#a48c5af6c2752d8787ee7ac27fd9ea14aa621a0fec1bcdb27626ca53cd7e8b8f24">COL_NAME</a></div><div class="ttdef"><b>Definition:</b> struct.h:54</div></div>
 </div><!-- fragment -->
-</div>
-</div>
-<a id="ac2a1a2e601bf4e82b35313bcfc1f276e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2a1a2e601bf4e82b35313bcfc1f276e">&sect;&nbsp;</a></span>sort_name_conv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int sort_name_conv </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1c65d8c581f38dfe5848cfc16f08d67d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c65d8c581f38dfe5848cfc16f08d67d">&sect;&nbsp;</a></span>status_int2text()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const gchararray status_int2text </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                             {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (status) <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;Yes&quot;</span>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;No&quot;</span>;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a22eb249047ea2d5c2fa947103f7e435e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22eb249047ea2d5c2fa947103f7e435e">&sect;&nbsp;</a></span>watched_int2text()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const gchararray watched_int2text </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                               {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span> (watched) <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;Yes&quot;</span>;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> (gchararray <span class="keyword">const</span>) <span class="stringliteral">&quot;No&quot;</span>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

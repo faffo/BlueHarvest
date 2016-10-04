@@ -193,7 +193,7 @@
             <property name="receives_default">True</property>
             <property name="use_stock">True</property>
             <property name="always_show_image">True</property>
-            <signal name="clicked" handler="handler_edit" object="tw_found" swapped="no"/>
+            <signal name="clicked" handler="handler_edit" swapped="no"/>
           </object>
           <packing>
             <property name="pack_type">end</property>
@@ -705,6 +705,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_stock">True</property>
+            <signal name="clicked" handler="handler_delete_widget" object="w_edit" swapped="no"/>
           </object>
         </child>
         <child>

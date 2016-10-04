@@ -1,7 +1,10 @@
 //
 // Created by faffo on 03/02/16.
 //
-
+/**
+ * @file handlers.cc file contenente gli handlers per la cattura dei segnali dalla GUI in gtk.
+ * Crea inoltre le due liste utilizzate dal programma.
+ */
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
@@ -17,12 +20,12 @@ extern GtkBuilder *builder;
 /**
  * Lista principale di tipo semplice per la gestione dell'elenco delle serie.
  */
-GSList *l_series = NULL;
+GSList *l_series=NULL;
 /**
  * Lista secondaria di tipo semplice utilizzata per visualizzare delle serie accomunate
  * da determinati principi di ricerca.
  */
-GSList *l_found = NULL;
+GSList *l_found=NULL;
 
 /**
  * Handler per la cattura di un sengnale di distruzione di un widget.
@@ -65,7 +68,6 @@ extern "C" void handler_sort(GtkMenuItem *menuItem, gpointer tree) {
     const gchar *label = gtk_menu_item_get_label(menuItem);
     int selection = sort_menu_conv(label);
     l_series = sort(l_series, selection);
-
 
     g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) GTK_LIST_STORE(tree));
 }
@@ -121,24 +123,28 @@ extern "C" void handler_search_name(GtkButton *button, gpointer pname){
     gchar *objects[] = {"w_found", "list_found", NULL};
     gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
+    //GtkListStore *listSeries = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series")));
+    GtkListStore *listFound = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
 
-    g_slist_foreach(l_found, (GFunc)g_free, NULL);
+    char* name = (gchar *) gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")));
+
+    g_slist_foreach(l_series, (GFunc) sname, name);
+
+    gtk_list_store_clear(listFound);
+    //DEB(gtk_list_store_clear(listSeries));
+    g_slist_foreach(l_found, (GFunc) refresh_treeview, listFound);
+    //DEB(g_slist_foreach(l_series, (GFunc) refresh_treeview, listSeries));
+
     g_slist_free(l_found);
     l_found = NULL;
 
-    const gchar* s_name = gtk_entry_get_text(GTK_ENTRY(pname));
-    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
-
-    g_slist_foreach(l_series, (GFunc) sname, (gpointer) s_name);
-
-    //g_slist_foreach(l_found, (GFunc) print_name_test, NULL);
-
-    g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listStore);
+    //sname_gtk(name);
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
-    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
+    //gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
-    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
+    //gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
+
 }
 /**
  * Handler per la cattura del segnale per la ricerca del genere tra quelle della lista principale.
@@ -147,29 +153,64 @@ extern "C" void handler_search_genre(GtkButton *button, gpointer pgenre){
     gchar *objects[] = {"w_found", "list_found", NULL};
     gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
+    //GtkListStore *listSeries = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series")));
+    GtkListStore *listFound = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
 
-    g_slist_foreach(l_found, (GFunc)g_free, NULL);
+    char* genre = (gchar *) gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")));
+
+    g_slist_foreach(l_series, (GFunc) sgenre, genre);
+
+    gtk_list_store_clear(listFound);
+    //DEB(gtk_list_store_clear(listSeries));
+    g_slist_foreach(l_found, (GFunc) refresh_treeview, listFound);
+    //DEB(g_slist_foreach(l_series, (GFunc) refresh_treeview, listSeries));
+
     g_slist_free(l_found);
     l_found = NULL;
 
-    const gchar* s_genre = gtk_entry_get_text(GTK_ENTRY(pgenre));
-    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_found"));
-    DEB(cout << s_genre << endl);
-
-    g_slist_foreach(l_series, (GFunc) sgenre, (gpointer) s_genre);
-
-    g_slist_foreach(l_found, (GFunc) refresh_treeview, (gpointer) listStore);
+    //sname_gtk(name);
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
-    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
+    //gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_name_entry")), "");
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_genre")));
-    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
+    //gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "s_genre_entry")), "");
 }
 /**
- * Handler per la cattura del segnale per l'eliminazione di una serie dalla lista.
+ * Handler per la cattura del segnale per l'eliminazione di una serie dalla lista. Cattura ed elimina. Versione aggiornata con main
  */
-extern "C" void handler_delete(GtkButton *button, gpointer ptw_found) {
-    GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ptw_found));
+extern "C" void handler_delete(GtkButton *button, gpointer pnull) {
+    series* s;
+
+    if(GTK_IS_WIDGET(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")))){
+        DEB(cout<< "funziona l'if per l'handler delete?" << endl);
+        s = get_sel(gtk_tree_view_get_selection(GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found"))));
+        //destroy_widget(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
+    }
+    else{
+        s = get_sel(gtk_tree_view_get_selection(GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_series"))));
+    }
+
+    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
+
+    DEB(cout << "test:" << s->name << endl);
+
+    if(s->name){
+        char *name = s->name;
+        del_list(l_series, search_list(l_series, name));
+
+        gtk_list_store_clear(listStore);
+        g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
+    }
+
+}
+/**
+ * Handler per la cattura del segnale per l'eliminazione di una serie dalla lista. Cattura ed elimina. Versione deprecata.
+ */
+extern "C" void handler_delete_old(GtkButton *button, gpointer pnull) {
+
+
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found")));
+
     //tw_edit(sel, DEL_MODE);
     GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
     series *s = get_sel(sel);
@@ -193,9 +234,23 @@ extern "C" void handler_delete(GtkButton *button, gpointer ptw_found) {
 
 }
 /**
- * Handler per la cattura del segnale per la modifica di una serie della lista.
+ * Handler per la cattura del segnale per la modifica di una serie della lista. Versione aggiornata con edit da main
  */
-extern "C" void handler_edit(GtkButton *button, gpointer ptw_found){
+extern "C" void handler_edit(GtkButton *button, gpointer pnull){
+    series *s;
+    if(GTK_IS_WIDGET(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")))){
+        s = get_sel(gtk_tree_view_get_selection(GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found"))));
+    } else{
+        s = get_sel(gtk_tree_view_get_selection(GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_series"))));
+    }
+    if(s->name) {
+        dialog_edit(s);
+    }
+}
+/**
+ * Handler per la cattura del segnale per la modifica di una serie della lista. Versione deprecata.
+ */
+extern "C" void handler_edit_old(GtkButton *button, gpointer ptw_found){
     GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ptw_found));
     series *s = get_sel(sel);
     if(s->name) {
@@ -203,9 +258,10 @@ extern "C" void handler_edit(GtkButton *button, gpointer ptw_found){
     }
 }
 /**
- * Handler per la cattura del segnale che finalizza la modifica della serie.
+ * Handler per la cattura del segnale che finalizza la modifica della serie. Deprecato.
  */
-extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series){
+extern "C" void handler_edit_confirm_old(GtkButton *button, gpointer edit_series){
+
     DEB(cout << "DENTRO HANDLER_EDIT_CONFIRM" << endl);
     //Inizializzo treeview found e series oltre che la selezione
     GtkTreeView *treeViewfound = GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found"));
@@ -215,7 +271,7 @@ extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series){
     series *s = get_sel(sel);
     char *name = s->name;
     //creo iter
-    GtkTreeIter *iter = NULL;
+    //GtkTreeIter *iter = NULL;
     //prendo dati dalla grid
     GtkGrid *data_grid = (GtkGrid *) edit_series;
 
@@ -231,22 +287,61 @@ extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series){
 
     //eseguo treeview foreach
     //gtk_tree_model_foreach(treeModel, find_tw, (gpointer) search_data);
-
-
-
-    //g_slist_foreach(l_series, (GFunc) print, NULL);
-    g_slist_foreach(l_series, (GFunc) edit, search_data);
-    //g_slist_foreach(l_series, (GFunc) print, NULL);
-    //cout << "testo se ho sostituito s con edited: " << test->name << endl;
-    //cout << "posizione elemente ricercato index: " << index <<endl;
+    GSList *tmp = l_series;
+    g_slist_foreach(tmp, (GFunc) edit, search_data);
     gtk_list_store_clear(listStore);
-    g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
+    g_slist_foreach(tmp, (GFunc) refresh_treeview, (gpointer) listStore);
+    l_series = tmp;
 
     //gtk_tree_selection_get_selected(sel, (GtkTreeModel **) treeViewfound, iter);
     //gtk_list_store_set(GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series")), iter);
 
     gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_edit")));
     gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
+
+}
+/**
+ * Handler per la cattura del segnale che finalizza la modifica della serie. Versione aggiornata con main.
+ */
+extern "C" void handler_edit_confirm(GtkButton *button, gpointer edit_series) {
+
+    GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
+    series* s;
+    series* edited;
+    if(GTK_IS_WIDGET(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")))){
+        DEB(cout << "ha funzionato l'if in hander edit confirm?" << endl);
+        GtkTreeView *treeViewfound = GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_found"));
+
+        GtkTreeSelection *sel = gtk_tree_view_get_selection(treeViewfound);
+
+        s = get_sel(sel);
+
+        edited = grid_to_struct((GtkGrid *) edit_series);
+        gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_edit")));
+        //gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_found")));
+    }
+    else { ;
+        GtkTreeView *treeViewseries = GTK_TREE_VIEW(gtk_builder_get_object(builder, "tw_series"));
+
+        GtkTreeSelection *sel = gtk_tree_view_get_selection(treeViewseries);
+
+        s = get_sel(sel);
+
+        edited = grid_to_struct((GtkGrid *) edit_series);
+        gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(builder, "w_edit")));
+    }
+
+    DEB(cout << "test contenuto nome edited->name: " << edited->name << endl);
+
+    //creo struct per passaggio info a funzione find
+    n_search_gtk *search_data = new n_search_gtk;
+    search_data->name = s->name;
+    search_data->mode = EDIT_MODE;
+    search_data->edited = edited;
+
+    g_slist_foreach(l_series, (GFunc) edit, search_data);
+    gtk_list_store_clear(listStore);
+    g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
 }
 /**
  * Handler per la cattura del segnale per l'aggiunta di una serie alla lista.
@@ -331,7 +426,7 @@ extern "C" void handler_dialog_delete_series(GtkMenuItem *menuItem, gpointer dia
  */
 extern "C" void handler_new(GtkMenuItem *menuItem, gpointer pliststore){
     GtkListStore *listStore = GTK_LIST_STORE(pliststore);
-    g_slist_foreach(l_series, (GFunc)g_free, NULL);
+    //g_slist_foreach(l_series, (GFunc)g_free, NULL);
     g_slist_free(l_series);
     l_series = NULL;
 

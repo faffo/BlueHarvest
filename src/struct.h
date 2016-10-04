@@ -1,7 +1,10 @@
 //
 // Created by faffo on 26/01/16.
 //
-
+/**
+ * @file struct.h file di header contenente le strutture base del progetto. Definisce anche alcune variabili globali.
+ * Viene definito qui anche la macro di tracing per il debug.
+ */
 #include <libmng_types.h>
 #include <gtk/gtk.h>
 
@@ -94,13 +97,13 @@ struct series {
      */
     char genre[LENGTH];
     /**
-     * Variabile che indica se la serie è conclusa o meno (1 o 0)
+     * Variabile che indica se la serie è conclusa o meno boolean
      */
-    int status;
+    bool status;
     /**
-     * Variabile che indica se la serie è stata vista o meno (1 o 0)
+     * Variabile che indica se la serie è stata vista o meno boolean
      */
-    int watched;
+    bool watched;
 };
 
 /**
@@ -110,4 +113,11 @@ struct n_search_gtk{
     char *name;
     int mode;
     series *edited;
+};
+/**
+* Struttura di supporto per passare le informazioni nei foreach di g_slist
+*/
+struct search_data{
+    char *text;
+    int mode;
 };

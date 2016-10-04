@@ -181,7 +181,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkMenuItem" id="Add Series">
+                      <object class="GtkMenuItem" id="mi_add_series">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Add Series</property>
@@ -190,12 +190,20 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="Delete Series">
+                      <object class="GtkMenuItem" id="mi_delete_series">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Delete Series</property>
                         <property name="use_underline">True</property>
-                        <signal name="activate" handler="handler_dialog_delete_series" swapped="no"/>
+                        <signal name="activate" handler="handler_delete" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="mi_edit_series">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Edit Series</property>
+                        <signal name="activate" handler="handler_edit" swapped="no"/>
                       </object>
                     </child>
                   </object>

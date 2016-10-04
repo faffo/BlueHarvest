@@ -10,7 +10,7 @@
  */
 
 /**
- * @file file contenente il main del progetto
+ * @file main.cc file contenente il main del progetto
  */
  
 #include <gtk/gtk.h>
@@ -23,11 +23,6 @@ using namespace std;
  * Builder dell'interfaccia grafica GTK per la creazione dell'UI del programma tramite GLADE
  */
 GtkBuilder *builder;
-
-/**
- * variabile per la selezione
- */
-static int pick;
 
 /**
  * Funzione main del progetto.
@@ -43,15 +38,15 @@ static int pick;
 */
 int main(int argc, char *argv[]) {
 
-    /**
+    /*
      * Nome del file glade della main interface:
      */
-    gchar file[] = "../src/resources/glade/main.glade";
-    /**
+//    gchar file[] = "../src/resources/glade/main.glade";
+    /*
      * Nome del file con apertura di default:
      */
     gtk_init(&argc, &argv);
-    /**
+    /*
      * Inizializzo builder e al momento della creazione gli faccio importare gli oggetti grafici creati con glade nel file: main.glade
      * Un altro modo di inizializzare il builder è il seguente:
      * Creo vettore di stringhe contenente i nomi delle componenti grafiche di GLADE da caricare
@@ -61,7 +56,7 @@ int main(int argc, char *argv[]) {
      *
      */
     builder = gtk_builder_new_from_file(BUILDER_PATH_MAIN);
-    /**
+    /*
      * Se è salvato un file name come apertura di default apre il file
      */
     default_on_startup();

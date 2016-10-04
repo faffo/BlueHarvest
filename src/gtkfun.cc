@@ -1,7 +1,9 @@
 //
 // Created by faffo on 03/02/16.
 //
-
+/**
+ * @file gtkfun.cc file contenente funzioni volte al funzionamento della GUI in gtk.
+ */
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include "gtkfun.h"
@@ -11,6 +13,7 @@ using namespace std;
 
 extern GtkBuilder *builder;
 extern GSList *l_series;
+extern GSList *l_found;
 
 /**
  * funzione per la distruzione di un widget passato a parametro
@@ -43,8 +46,8 @@ void refresh_treeview(series *s, gpointer plist) {
                        3, s->n_seasons,
                        4, s->year,
                        5, s->genre,
-                       6, status_int2text(s->status),
-                       7, watched_int2text(s->watched),
+                       6, bool2text(s->status),
+                       7, bool2text(s->watched),
                        -1);
 }
 /*
@@ -147,10 +150,11 @@ gboolean read_list(GtkTreeModel *model,
 }
 */
 /**
- * Funzione che ottiene il valore che si intende ricercare:
+ * Funzione che ottiene il valore che si intende ricercare. Deprecata.
  * @param selection valore intero passato per definire quale colonna leggere
  * @return ritorna valore letto
  */
+/*
 const char *get_entry(int selection) {
     switch (selection) {
         case COL_NAME:
@@ -161,6 +165,7 @@ const char *get_entry(int selection) {
             return "false";
     }
 }
+*/
 /**
  * Funzione per la traduzione di una treeview popolata in una struct di tipo series.
  * @param model è il treemodel della treeview
@@ -267,3 +272,4 @@ bool open_file(const char* fname, GtkListStore *listStore){
     g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
     return true;
 }
+
