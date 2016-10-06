@@ -28,7 +28,6 @@ const char BUILDER_PATH_DIALOG[] = "../src/resources/glade/dialog.glade";
 /**
  * Percorso contenente il file .glade per la finestra main
  */
-
 const char BUILDER_PATH_MAIN[] = "../src/resources/glade/main.glade";
 
 /*
@@ -51,21 +50,21 @@ enum t_status {
  * Enumera le colonne utilizzate dalla tree view di gtk per la visualizzazione delle informazioni sulla serie
  */
 enum tm_columns {
-    COL_NAME = 0,
-    COL_LAST_EP,
-    COL_N_EP,
-    COL_N_S,
-    COL_YEAR,
-    COL_GEN,
-    COL_STAT,
-    COL_WATCHED
+    COL_NAME = 0, /**<Colonna 0 del nome*/
+    COL_LAST_EP, /**<Colonna 1 dell'ultimo episodio*/
+    COL_N_EP, /**<Colonna 2 del numero episodi*/
+    COL_N_S, /**<Colonna 3 del numero stagioni*/
+    COL_YEAR, /**<Colonna 4 dell'anno*/
+    COL_GEN, /**<Colonna 5 del genere*/
+    COL_STAT, /**<Colonna 6 dello stato*/
+    COL_WATCHED /**<Colonna 7 del visto sì/no*/
 };
 /**
  * Enumerazione della modalità di modifica di una funzione
  */
 enum edit_mode {
-    DEL_MODE = 0,
-    EDIT_MODE
+    DEL_MODE = 0, /**<Definita uguale a 0 dall'enum, più facile da ricordare*/
+    EDIT_MODE /**<Definita uguale a 1 dall'enum. Più facilmente memorizzabile*/
 };
 
 /**
@@ -110,14 +109,14 @@ struct series {
  * Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist
  */
 struct n_search_gtk{
-    char *name;
-    int mode;
-    series *edited;
+    char *name; /**<Il nome della serie da ricercare */
+    int mode; /**<La modalità di ricerca (permette di usare meno codice*/
+    series *edited; /**<La serie modificata che sostituirà al ricercata*/
 };
 /**
 * Struttura di supporto per passare le informazioni nei foreach di g_slist
 */
 struct search_data{
-    char *text;
-    int mode;
+    char *text; /**<Testo da passare alla funzione in g_slist_foreach*/
+    int mode; /**Modalità di esecuzione<*/
 };

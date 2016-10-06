@@ -15,10 +15,7 @@ extern GtkBuilder *builder;
 extern GSList *l_series;
 extern GSList *l_found;
 
-/**
- * funzione per la distruzione di un widget passato a parametro
- * @param widget widget da distruggere
- */
+
 void destroy_widget(GtkWidget *widget){
     gtk_widget_destroy(widget);
 }
@@ -27,8 +24,8 @@ void destroy_widget(GtkWidget *widget){
  * Funzione che permette la rappresentazione grafica della lista di serie in una gtk_treeview.
  * I paramentri di entrata sono i nodi della lista l_series navigata tramite g_slist_foreach()
  * Ognuno di essi è quindi una serie:
- * @param s serie contenuta nel nodo attraversato
- * @param plist è un puntatore che punta invece al listStore di gtk per la rappresentazione grafica.
+ * @param[in] s serie contenuta nel nodo attraversato tipo ::series
+ * @param[in] plist è un puntatore che punta invece al listStore di gtk per la rappresentazione grafica.
  * Esso puà essere sia il principale list_series sia l'ausiliario list_found
  */
 void refresh_treeview(series *s, gpointer plist) {
@@ -73,8 +70,9 @@ void tw_edit(GtkTreeSelection *sel, int mode) {
 */
 /**
  * Funzione per estrappolare i dati inerenti ad una riga selezionata nella treeView (e quindi una serie)
- * @param sel fornisce selezione di gtk_tree_selection
- * La funzione ritorna una serie, dopo che i dati sono stati trasformati in struct da tw_to_struct @return
+ * @param[in] sel fornisce selezione di gtk_tree_selection
+ * La funzione ritorna una serie, dopo che i dati sono stati trasformati in struct da tw_to_struct
+ * @return Ritorna tipo ::series dato da tw_to_struct
  */
 series * get_sel(GtkTreeSelection *sel){
     GtkTreeModel *model_sel;
@@ -86,7 +84,7 @@ series * get_sel(GtkTreeSelection *sel){
 /**
  * Funzione che crea graficamente una finestra di dialogo contenente i dati della
  * serie in ingresso per permetterne la modifica
- * @param s struct series passata alla funzione
+ * @param[in] s struct ::series passata alla funzione
  */
 void dialog_edit(series *s){
     gchar* objects[] = {"w_edit", NULL};
@@ -168,9 +166,9 @@ const char *get_entry(int selection) {
 */
 /**
  * Funzione per la traduzione di una treeview popolata in una struct di tipo series.
- * @param model è il treemodel della treeview
- * @param iter è il puntatore alla riga della treeview
- * @return ritorna i dati ottenuti dopo essere stati copiati in una struct series
+ * @param[in] model è il treemodel della treeview
+ * @param[in] iter è il puntatore alla riga della treeview
+ * @return ritorna i dati ottenuti dopo essere stati copiati in una struct ::series
  */
 series * tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter){
     gchararray status, watched, name, last_episode, genre;
@@ -189,8 +187,8 @@ series * tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter){
 /**
  * Funzione per l'ottenimento di dati da una grid (in questo caso quella di edit)
  * per la creazione di una struct series.
- * @param data_grid gtk_grid contenente i vari campi con i valori da utilizzare
- * @return Restituisce una struct con i dati ottenuti
+ * @param[in] data_grid gtk_grid contenente i vari campi con i valori da utilizzare
+ * @return Restituisce una struct s ::series con i dati ottenuti
  */
 series * grid_to_struct(GtkGrid *data_grid){
     GtkEntry *entry_series_name = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 0);
@@ -261,8 +259,8 @@ void default_on_startup(){
 }
 /**
  * Funzione che apre un file tramite il nome passato
- * @param fname Nome assoluto del file
- * @param ListStore gtk_list_store in cui salvare i dati letti
+ * @param[in] fname Nome assoluto del file
+ * @param[in] ListStore gtk_list_store in cui salvare i dati letti
  * @return Ritorna vero se la lettura è andata a buon fine falso se non è stato possibile aprire file
  */
 bool open_file(const char* fname, GtkListStore *listStore){

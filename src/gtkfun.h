@@ -7,11 +7,10 @@
 
 #include "manipulation.h"
 
-//#ifndef BLUEHARVEST_GTKFUN_H
-//#define BLUEHARVEST_GTKFUN_H
-
-//#endif //BLUEHARVEST_GTKFUN_H
-
+/**
+ * funzione per la distruzione di un widget passato a parametro
+ * @param widget widget da distruggere
+ */
 void destroy_widget(GtkWidget *widget);
 
 void refresh_treeview(series *s, gpointer plist);

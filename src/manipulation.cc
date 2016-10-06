@@ -15,7 +15,7 @@ using namespace std;
 extern GSList *l_found;
 /**
  * Funzione ausiliaria per trasformate i valori booleani contenuti in series (watched e status) in testo
- * @param text testo in entrata
+ * @param[in] text testo in entrata
  * @return ritorna vero se testo = yes e falso se = no
  */
 const gchararray bool2text(bool text) {
@@ -24,7 +24,7 @@ const gchararray bool2text(bool text) {
 }
 /**
  * Funzione ausiliaria per trasformare un integer nel medesimo numero in formato char*.
- * @param number numero intero in ingresso
+ * @param[in] number numero intero in ingresso
  * @return Ritorna il numero in formato char*
  */
 const char* itochar(gint number){
@@ -44,10 +44,10 @@ const bool text2bool(gchararray text) {
 /**
  * Funzione per cancellare una riga da un listStore data una serie in inngresso. Funzione non attualmente utilizzata.
  * Alternativa al modello proposto ora. Invece di cancellare elemento da lista e refreshare la treeview viene direttamente modificata la treeview.
- * @param model TreeModel da ispezionare
- * @param path Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach)
- * @param iter Indicatore di linea attraversata
- * @param pseries Serie da confrontare ed eliminare passata come gpointer generico.
+ * @param[in] model TreeModel da ispezionare
+ * @param[in] path Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach)
+ * @param[in,out] iter Indicatore di linea attraversata
+ * @param[in] pseries Serie da confrontare ed eliminare passata come gpointer generico.
  * @return Ritorna vero se la serie è stata trovata ed eliminata con successo. Falso altrimenti.
  */
 gboolean gtk_del(GtkTreeModel *model,
@@ -70,10 +70,10 @@ gboolean gtk_del(GtkTreeModel *model,
 /**
  * Funzione generica per la ricerca di una serie all'interno di una treeview. Accetta in ingresso più dati per determinare cosa si voglia fare con la serie ricercata
  * Supporta sia la cancellazione di una serie sia l'editing. Deprecata.
- * @param model TreeModel su cui fare ricerca
- * @param path Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach)
- * @param iter Indicatore di linea attraversata
- * @param psearch Struttura dati contenente la serie e la modalità in cui si vuol fare funzionare la funzione (EDIT_MODE, DEL_MODE)
+ * @param[in] model TreeModel su cui fare ricerca
+ * @param[in] path Indicatore di percorso di gtk (non utilizzato ma necessario per utilizzare il foreach)
+ * @param[in,out] iter Indicatore di linea attraversata
+ * @param[in] psearch Struttura dati contenente la serie e la modalità in cui si vuol fare funzionare la funzione (EDIT_MODE, DEL_MODE)
  * @return Ritorna vero se la serie è stata trovata e l'operazione richiesta è stata effettuata con successo. Falso altrimenti.
  */
 gboolean find_tw(GtkTreeModel *model,
@@ -117,15 +117,15 @@ gboolean find_tw(GtkTreeModel *model,
 }
 /**
  * Funzione ausiliaria per la creazione di una struct series da dei dati in ingresso.
- * @param name Nome della serie
- * @param last_episode Ultimo episodio
- * @param n_episodes Numero episodi totali
- * @param n_seasons Numero stagioni
- * @param year Anno di uscita della serie
- * @param gen Genere della serie
- * @param status Flag in corso o terminata
- * @param watched Flag in pari o meno
- * @return Ritora la struct series creata dai dati
+ * @param[in] name Nome della serie
+ * @param[in] last_episode Ultimo episodio
+ * @param[in] n_episodes Numero episodi totali
+ * @param[in] n_seasons Numero stagioni
+ * @param[in] year Anno di uscita della serie
+ * @param[in] gen Genere della serie
+ * @param[in] status Flag in corso o terminata
+ * @param[in] watched Flag in pari o meno
+ * @return Ritora la struct ::series creata dai dati
  */
 series *data_to_struct(const gchararray name,
                        const gchararray last_episode,
@@ -153,8 +153,8 @@ series *data_to_struct(const gchararray name,
 }
 /**
  * Funzione ausiliaria per la comparazione tra 2 interi. Mima il comportamento di strcmp
- * @param a Primo intero da confrontare
- * @param b Secondo intero da confrontare
+ * @param[in] a Primo intero da confrontare
+ * @param[in] b Secondo intero da confrontare
  * @return Ritora 1 se a > b, 0 se a = b, -1 se a < b.
  */
 static int intcmp(int a, int b) {
@@ -164,9 +164,9 @@ static int intcmp(int a, int b) {
 }
 /**
  * Funzione ausiliaria confrontare 2 varioibili tra 2 serie.
- * @param first Primo Serie da confrontare
- * @param second Secondo elemento da confrontare
- * @param sel Definisce quale variabile confrontare
+ * @param[in] first Primo Serie da confrontare
+ * @param[in] second Secondo elemento da confrontare
+ * @param[in] sel Definisce quale variabile confrontare
  * @return Restituire il valore del confronto.
  */
 static int compare(gconstpointer first, gconstpointer second, gpointer sel) {
@@ -195,8 +195,8 @@ static int compare(gconstpointer first, gconstpointer second, gpointer sel) {
 }
 /**
  * Funzione per l'ordinamento di una lista in ingresso
- * @param list La lista da ordinare
- * @param selection Il criterio su cui ordinare
+ * @param[in,out] list La lista da ordinare
+ * @param[in] selection Il criterio su cui ordinare
  * @return Ritorna la lista ordinata
  */
 GSList *sort(GSList *list, int selection) {
@@ -206,7 +206,7 @@ GSList *sort(GSList *list, int selection) {
 }
 /**
  * Funzione ausiliaria per l'ordinamento di una lista in base alla label passata.
- * @param label Definisce su cosa lavorare.
+ * @param[in] label Definisce su cosa lavorare.
  * @return Ritorna un valore numerico corrispondente alla label.
  */
 int sort_menu_conv(const char *label) {
@@ -254,8 +254,8 @@ void insert_series(GSList *&list, series *sin) {
 /**
  * Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). Pensata per gestire molteplici criteri di ricerca
  * Deprecata. Al momento non funziona.
- * @param serie Serie passata dalla funzione g_slist_foreach in cui questa funzione è utilizzata
- * @param pdata puntatore a struct search_data contenente il testo da ricercare e il campo in cui ricercarlo (sotto forma di intero)
+ * @param[in] serie ::series passata dalla funzione g_slist_foreach in cui questa funzione è utilizzata
+ * @param[in] pdata puntatore a struct search_data contenente il testo da ricercare e il campo in cui ricercarlo (sotto forma di intero)
  */
 void s_data(series* serie, gpointer pdata){
     search_data* data = (search_data *) pdata;
@@ -281,8 +281,8 @@ void s_data(series* serie, gpointer pdata){
 /**
  * Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). Il criterio di ricerca è che la stringe di caratteri fornita
  * compaia all'interno del campo serie->name. case insensitive.
- * @param serie La serie in cui cercare una corrispondenza, passata da g_slist_foreach
- * @param pname La serie di caratteri da ricercare.
+ * @param[in] serie La ::series in cui cercare una corrispondenza, passata da g_slist_foreach
+ * @param[in] pname La serie di caratteri da ricercare.
  */
 void sname(series* serie, gpointer pname){
     char* name = (char *) pname;
@@ -295,8 +295,8 @@ void sname(series* serie, gpointer pname){
 /**
  * Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). Il criterio di ricerca è che la stringe di caratteri fornita
  * compaia all'interno del campo serie->genre. case insensitive.
- * @param serie La serie in cui cercare una corrispondenza, passata da g_slist_foreach
- * @param pgenre La serie di caratteri da ricercare.
+ * @param[in] serie La ::series in cui cercare una corrispondenza, passata da g_slist_foreach
+ * @param[in] pgenre La serie di caratteri da ricercare.
  */
 void sgenre(series* serie, gpointer pgenre){
     char* genre = (char *) pgenre;
@@ -314,8 +314,8 @@ void print_name_test(series* serie){
 /**
  * Funzione per l'edit di una serie. In ingresso prende oltre alle 2 serie (la vecchia e la modificata) anche il nome usato per la ricerca delle serie.
  * Modifica la serie "old" il cui nome corrisponde con il parametro di ricerca passato.
- * @param pold Serie da controllare e, se corrisponde, modificare. Passata da g_slist_foreach.
- * @param pedit Struttura contenente la nuova serie e il nome per effettuare confronto.
+ * @param[in] pold Serie da controllare e, se corrisponde, modificare. Passata da g_slist_foreach.
+ * @param[in] pedit Struttura contenente la nuova serie e il nome per effettuare confronto.
  */
 void edit(gpointer pold, gpointer pedit){
     DEB(cout << "dentro edit in foreach" << endl);
@@ -340,9 +340,9 @@ void edit(gpointer pold, gpointer pedit){
 /**
  * Funzione ausiliaria per la ricerca di una corrispondenza all'interno di una lista del nome di una serie.
  * Utilizzata per la cancellazione di un nodo dalla lista.
- * @param list Lista su cui effettuare la ricerca.
- * @param nome Nome da confrontare.
- * @return Ritorna l'elemento trovato se confronto è positivo
+ * @param[in] list Lista su cui effettuare la ricerca.
+ * @param[in] nome Nome da confrontare.
+ * @param[in] Ritorna l'elemento trovato se confronto è positivo
  */
 GSList* search_list(GSList* list, const char nome[]) {
     GSList* tmp = list;
@@ -357,8 +357,8 @@ GSList* search_list(GSList* list, const char nome[]) {
 }
 /**
  * Funzione per la cancellazione di un elemento dalla lista inserita a parametro.
- * @param list La lista da cui cancellare l'.
- * @param tmp L'elemento da cancellare.
+ * @param[in,out] list La lista da cui cancellare l'.
+ * @param[in] L'elemento da cancellare.
  */
 void del_list(GSList* &list, GSList*tmp)
 {

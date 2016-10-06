@@ -11,8 +11,6 @@
 #include "handlers.h"
 #include "gtkfun.h"
 #include "loadsave.h"
-//#include "manipulation.h"
-//#include "struct.h"
 
 using namespace std;
 
@@ -27,9 +25,6 @@ GSList *l_series=NULL;
  */
 GSList *l_found=NULL;
 
-/**
- * Handler per la cattura di un sengnale di distruzione di un widget.
- */
 extern "C" void handler_delete_widget(GtkButton *gtkButton, gpointer widget) {
     destroy_widget(GTK_WIDGET(widget));
 }

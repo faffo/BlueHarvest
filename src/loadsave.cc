@@ -11,6 +11,8 @@ using namespace std;
 
 /**
  * Nome dell'ultimo file aperto/salvato. Serve come apertura di default del programma.
+ * @param[in] s ::series da salvare
+ * @param[in] f ofstream a cui inviare i dati per il salvataggio
  */
 static void save_series(series *s, ofstream f) {
     //cout << s->name << " " << s->last_episode << " " << s->n_episodes << " " << s->n_seasons << " " << s->year << " " <<
@@ -22,8 +24,8 @@ static void save_series(series *s, ofstream f) {
 
 /**
  * Funzione per la stampa di una struttura per motivi di DEBUG. Outdatata.
- * @param strut Struttura in ingresso da stampare
- * @param data Pointer data a tipo GSList*. non usato.
+ * @param[in] strut Struttura in ingresso da stampare (tipo ::series)
+ * @param[in] data Pointer data a tipo GSList*. non usato.
  * @return void
  */
 void print(gpointer strut, gpointer data) {
@@ -39,8 +41,8 @@ void print(gpointer strut, gpointer data) {
 /**
  * Funzione per il salvataggio della lista su file. Prende in ingresso una lista (l_series in questo caso)
  * e un nome file.
- * @param l_series Serie in ingresso sa salvare.
- * @param f_name Il nome con cui cui salvare il file.
+ * @param[in] l_series Lista di ::series in ingresso sa salvare.
+ * @param[in] f_name Il nome con cui cui salvare il file.
  * @return Ritorna vero se andata a buon fine o falso se ha fallito.
  */
 bool save(GSList *l_series, const char f_name[]) {
@@ -70,8 +72,8 @@ bool save(GSList *l_series, const char f_name[]) {
 
 /**
  * Funzione per il caricamento di una lista da file. Prende in ingresso un nome file e copia su @param l_series il contenuto
- * @param l_series La GSList su cui copiare il contenuto del file.
- * @param f_name Il nome del file da cui prendere i dati.
+ * @param[in,out] l_series La GSList di ::series su cui copiare il contenuto del file.
+ * @param[in] f_name Il nome del file da cui prendere i dati.
  * @return Ritorna vero se è andato a buon fine. Falso se ha fallito.
  */
 bool load(GSList *&l_series, const char f_name[]) {
@@ -112,7 +114,7 @@ bool load(GSList *&l_series, const char f_name[]) {
 
 /**
  * Funzione ausiliaria per il caricamento automatico all'avvio dell'ultimo file aperto.
- * @param fname Il nome del file. La funzione modifica direttamente il fname dato in infgresso.
+ * @param[in] fname Il nome del file. La funzione modifica direttamente il fname dato in infgresso.
  * @return void
  */
 void read_defaultfn(char *fname) {

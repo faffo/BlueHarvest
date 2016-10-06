@@ -10,7 +10,9 @@
 //#endif //BLUEHARVEST_HANDLERS_H
 
 
-
+/**
+ * Handler per la cattura di un sengnale di distruzione di un widget.
+ */
 extern "C" void handler_delete_widget(GtkButton *, gpointer);
 
 extern "C" void handler_save_file(GtkButton *, gpointer);
