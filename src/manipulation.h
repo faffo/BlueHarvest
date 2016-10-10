@@ -22,32 +22,22 @@ series *data_to_struct(const gchararray,
                        gchararray,
                        gchararray);
 
-GSList * sort(GSList *list, int picked);
+GSList *sort(GSList *list, int picked);
 
 int sort_menu_conv(const char *);
 
 const gchararray bool2text(bool text);
 
-gboolean gtk_del(GtkTreeModel *model,
-             GtkTreePath *path,
-             GtkTreeIter *iter,
-             gpointer data);
+void s_data(series *serie, gpointer pdata);
 
-gboolean find_tw(GtkTreeModel *model,
-             GtkTreePath *path,
-             GtkTreeIter *iter,
-             gpointer data);
+void sname(series *, gpointer);
 
-void s_data(series* serie, gpointer pdata);
+void sgenre(series *, gpointer);
 
-void sname(series*, gpointer);
+const char *itochar(gint);
 
-void sgenre(series*, gpointer);
+void edit(gpointer, gpointer);
 
-const char* itochar(gint);
+GSList *search_list(GSList *list, const char nome[]);
 
-void edit(gpointer, gpointer );
-
-GSList* search_list(GSList* list, const char nome[]);
-
-void del_list(GSList* &list, GSList*tmp);
+void del_list(GSList *&list, GSList *tmp);

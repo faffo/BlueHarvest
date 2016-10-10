@@ -5,11 +5,11 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 # Setup CMake to use GTK+, tell the compiler where to look for headers
 # and to the linker where to look for libraries
-include_directories(${GTK3_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/src/resources/graphics/icons)
+include_directories(${GTK3_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/resources/media/icons)
 link_directories(${GTK3_LIBRARY_DIRS})
 # Add other flags to the compiler
 #add_definitions(${GTK3_CFLAGS_OTHER})
-set(CMAKE_CXX_FLAGS "-Wall -export-dynamic -rdynamic -D DEBUG")
+set(CMAKE_CXX_FLAGS "-Wall -export-dynamic -rdynamic")
 # Set output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/out)
 # Add an executable compiled from main.cc

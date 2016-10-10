@@ -31,7 +31,6 @@ static void save_series(series *s, ofstream f) {
 void print(gpointer strut, gpointer data) {
     DEB(cout << "********************" << endl;
                 cout << "dentro print foreach" << endl);
-    GSList *list = (GSList *) data;
     series *s = (series *) strut;
     DEB(cout << s->name << " " << s->last_episode << " " << s->n_episodes << " " << s->n_seasons << " " <<
              s->year << " " << s->genre << " " << s->status << " " << s->watched << endl);
@@ -49,22 +48,17 @@ bool save(GSList *l_series, const char f_name[]) {
 
     DEB(cout << "dentro save" << endl);
 
-/*
-    if(ifstream(f_name)){
-        if(!error_file_exist(f_name)) return false;
-    }
-*/
-    ofstream f(f_name);
+    ofstream f(f_name); /*Creo output file stream sul nome file indicato in ingresso*/
 
-    if (!f) {
+    if (!f) {   /*Controllo apertura riuscita*/
         return false;
     } else {
-        ofstream df(DEFAULT_FNAME);
+        ofstream df(DEFAULT_FNAME); /*Copio nel default.conf il nome del file appena salvato*/
         df << f_name;
-        g_slist_foreach(l_series, (GFunc) print, NULL);
-        g_slist_foreach(l_series, (GFunc) save_series, (gpointer) &f);
+        DEB(g_slist_foreach(l_series, (GFunc) print, NULL));
+        g_slist_foreach(l_series, (GFunc) save_series, (gpointer) &f);  /*Salvo il contenuto di l_series su fname*/
 
-        f.close();
+        f.close();  /*Chiudo l'output file stream*/
         f.clear();
         return true;
     }
@@ -78,12 +72,11 @@ bool save(GSList *l_series, const char f_name[]) {
  */
 bool load(GSList *&l_series, const char f_name[]) {
     DEB(cout << "dentro load: " << f_name << endl);
-    ifstream f(f_name);
-    if (f.is_open()) {
-        //g_slist_foreach(l_series, (GFunc) g_free, NULL);
-        g_slist_free(l_series);
+    ifstream f(f_name); /*creo l'input file stream*/
+    if (f.is_open()) {  /*Controllo riuscita dell'apertura*/
+        g_slist_free(l_series); /*Vuoto l_series*/
         l_series = NULL;
-        while (!f.eof()) {
+        while (!f.eof()) {  /*Itero fino all'end of file e copio le varie parti contenuto nel file nella struttura*/
             series *s = new series;
             f >> s->name;
             f >> s->last_episode;
@@ -103,13 +96,14 @@ bool load(GSList *&l_series, const char f_name[]) {
                         cout << s->status << endl;
                         cout << s->watched << endl);
 
-            l_series = g_slist_append(l_series, s);
+            l_series = g_slist_append(l_series, s); /*Aggiungo ogni serie letta alla l_series*/
         }
-        ofstream df(DEFAULT_FNAME);
+        ofstream df(DEFAULT_FNAME); /*Salvo nome file name nel default.conf*/
         df << f_name;
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
 
 /**
@@ -118,9 +112,9 @@ bool load(GSList *&l_series, const char f_name[]) {
  * @return void
  */
 void read_defaultfn(char *fname) {
-    ifstream f(DEFAULT_FNAME);
-    while (!f.eof()) {
-        f >> fname;
+    ifstream f(DEFAULT_FNAME);  /*Apro input file stream di default.conf*/
+    while (!f.eof()) {  /*Itero fino end of file*/
+        f >> fname; /*Leggo nome file contenuto*/
         DEB(cout << "dentro while(!f.eof()): " << fname << endl)
     }
 }

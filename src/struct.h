@@ -9,9 +9,9 @@
 #include <gtk/gtk.h>
 
 #ifdef DEBUG
-    #define DEB(a) {a; }
+#define DEB(a) {a; }
 #else
-    #define DEB(a)
+#define DEB(a)
 #endif
 /**
  * Lunghezza massima del testo.
@@ -24,11 +24,11 @@ const char DEFAULT_FNAME[] = "../out/default.conf";
 /**
  * Percorso contenente il file .glade per le finestre di dialogo
  */
-const char BUILDER_PATH_DIALOG[] = "../src/resources/glade/dialog.glade";
+const char BUILDER_PATH_DIALOG[] = "../resources/glade/dialog.glade";
 /**
  * Percorso contenente il file .glade per la finestra main
  */
-const char BUILDER_PATH_MAIN[] = "../src/resources/glade/main.glade";
+const char BUILDER_PATH_MAIN[] = "../resources/glade/main.glade";
 
 /*
 enum t_status {
@@ -108,7 +108,7 @@ struct series {
 /**
  * Struttura di supporto per passare le informazioni nei foreach di gtk e g_slist
  */
-struct n_search_gtk{
+struct n_search_gtk {
     char *name; /**<Il nome della serie da ricercare */
     int mode; /**<La modalità di ricerca (permette di usare meno codice*/
     series *edited; /**<La serie modificata che sostituirà al ricercata*/
@@ -116,7 +116,7 @@ struct n_search_gtk{
 /**
 * Struttura di supporto per passare le informazioni nei foreach di g_slist
 */
-struct search_data{
+struct search_data {
     char *text; /**<Testo da passare alla funzione in g_slist_foreach*/
     int mode; /**Modalità di esecuzione<*/
 };

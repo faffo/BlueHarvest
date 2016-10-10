@@ -15,8 +15,11 @@ extern GtkBuilder *builder;
 extern GSList *l_series;
 extern GSList *l_found;
 
-
-void destroy_widget(GtkWidget *widget){
+/**
+ * funzione per la distruzione di un widget passato a parametro
+ * @param widget widget da distruggere
+ */
+void destroy_widget(GtkWidget *widget) {
     gtk_widget_destroy(widget);
 }
 
@@ -30,14 +33,14 @@ void destroy_widget(GtkWidget *widget){
  */
 void refresh_treeview(series *s, gpointer plist) {
     DEB(cout << "dentro refresh_treeview" << endl;
-                  cout << s->name << endl);
+                cout << s->name << endl);
     GtkListStore *listStore = GTK_LIST_STORE(plist);
 
     GtkTreeIter iter;
     //GtkListStore *listStore = GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series"));
 
-    gtk_list_store_append(listStore, &iter);
-    gtk_list_store_set(listStore, &iter, 0, s->name,
+    gtk_list_store_append(listStore, &iter);    /*Creo prima riga liststore*/
+    gtk_list_store_set(listStore, &iter, 0, s->name,   /*Inserisco i dati*/
                        1, s->last_episode,
                        2, s->n_episodes,
                        3, s->n_seasons,
@@ -74,23 +77,26 @@ void tw_edit(GtkTreeSelection *sel, int mode) {
  * La funzione ritorna una serie, dopo che i dati sono stati trasformati in struct da tw_to_struct
  * @return Ritorna tipo ::series dato da tw_to_struct
  */
-series * get_sel(GtkTreeSelection *sel){
+series *get_sel(GtkTreeSelection *sel) {
     GtkTreeModel *model_sel;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(sel, &model_sel, &iter)) {
-        return tw_to_struct(model_sel, &iter);
-    }
+        return tw_to_struct(model_sel,
+                            &iter);  /*Chiamo funzione per trasformare i dati nella treeview all'iter in una struct series*/
+    } else return new series;
 }
+
 /**
  * Funzione che crea graficamente una finestra di dialogo contenente i dati della
  * serie in ingresso per permetterne la modifica
  * @param[in] s struct ::series passata alla funzione
  */
-void dialog_edit(series *s){
-    gchar* objects[] = {"w_edit", NULL};
-    gtk_builder_add_objects_from_file(builder, "../src/resources/glade/dialog.glade", objects, NULL);
+void dialog_edit(series *s) {
+    gchar *objects[] = {(char *) "w_edit", NULL};
+    gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
 
+    /*Inserisco tutti i dati della serie nella finestra di dialogo*/
     gtk_entry_set_text(GTK_ENTRY((gtk_builder_get_object(builder, "edit_entry_name"))), s->name);
     gtk_entry_set_text(GTK_ENTRY((gtk_builder_get_object(builder, "edit_entry_last_ep"))), s->last_episode);
     //convert int to text n_ep
@@ -113,10 +119,10 @@ void dialog_edit(series *s){
     gtk_entry_set_text(GTK_ENTRY((gtk_builder_get_object(builder, "edit_entry_year"))), year_text);
     gtk_combo_box_set_active_id(GTK_COMBO_BOX((gtk_builder_get_object(builder, "edit_combo_genre"))), s->genre);
 
-    if(s->status){
+    if (s->status) {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "edit_checkb_status")), true);
     }
-    if(s->watched){
+    if (s->watched) {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "edit_checkb_watched")), true);
     }
 
@@ -170,7 +176,7 @@ const char *get_entry(int selection) {
  * @param[in] iter è il puntatore alla riga della treeview
  * @return ritorna i dati ottenuti dopo essere stati copiati in una struct ::series
  */
-series * tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter){
+series *tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter) {
     gchararray status, watched, name, last_episode, genre;
     gint n_episodes, n_seasons, year;
     gtk_tree_model_get(model, iter, COL_NAME, &name, -1);
@@ -184,13 +190,16 @@ series * tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter){
 
     return data_to_struct(name, last_episode, n_episodes, n_seasons, year, genre, status, watched);
 }
+
 /**
  * Funzione per l'ottenimento di dati da una grid (in questo caso quella di edit)
  * per la creazione di una struct series.
  * @param[in] data_grid gtk_grid contenente i vari campi con i valori da utilizzare
  * @return Restituisce una struct s ::series con i dati ottenuti
  */
-series * grid_to_struct(GtkGrid *data_grid){
+series *grid_to_struct(GtkGrid *data_grid) {
+    series *s = new series;
+
     GtkEntry *entry_series_name = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 0);
     const gchararray series_name = (gchararray const) gtk_entry_get_text(entry_series_name);
     //last ep
@@ -199,15 +208,26 @@ series * grid_to_struct(GtkGrid *data_grid){
     //numero ep
     GtkEntry *entry_series_num_ep = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 2);
     const gchar *series_num_ep_string = gtk_entry_get_text(entry_series_num_ep);
-    const gint series_num_ep = stoi(series_num_ep_string);
+    gint series_num_ep;
+    if (isdigit(series_num_ep_string[0])) {   /*controllo dati*/
+        series_num_ep = stoi(series_num_ep_string);
+    } else series_num_ep = NULL;
     //numero seas
     GtkEntry *entry_series_num_seas = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 3);
     const gchar *series_num_seas_string = gtk_entry_get_text(entry_series_num_seas);
-    const gint series_num_seas = stoi(series_num_seas_string);
+    gint series_num_seas;
+    if (isdigit(series_num_seas_string[0])) { /*controllo dati*/
+        series_num_seas = stoi(series_num_seas_string);
+    } else series_num_seas = NULL;
+
     //anno
     GtkEntry *entry_series_year = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 4);
     const gchar *series_year_string = gtk_entry_get_text(entry_series_year);
-    const gint series_year = stoi(series_year_string);
+    gint series_year;
+    if (isdigit(series_year_string[0])) {     /*controllo dati*/
+        series_year = stoi(series_year_string);
+    } else series_year = NULL;
+
     //genere
     GtkComboBoxText *combo_genre = (GtkComboBoxText *) gtk_grid_get_child_at(data_grid, 1, 5);
     const gchararray genre_string = (gchararray const) gtk_combo_box_text_get_active_text(combo_genre);
@@ -221,53 +241,68 @@ series * grid_to_struct(GtkGrid *data_grid){
     //finita o in corso
     GtkToggleButton *toggle_ended = (GtkToggleButton *) gtk_grid_get_child_at(toggle_grid, 0, 0);
     gboolean status = gtk_toggle_button_get_active(toggle_ended);
-    if (status) status_string = "Yes";
-    else status_string = "No";
+    if (status) status_string = (char *) "Yes";
+    else status_string = (char *) "No";
     //vista o no
     GtkToggleButton *toggle_watched = (GtkToggleButton *) gtk_grid_get_child_at(toggle_grid, 1, 0);
     gboolean watched = gtk_toggle_button_get_active(toggle_watched);
-    if (watched) watched_string = "Yes";
-    else watched_string = "No";
+    if (watched) watched_string = (char *) "Yes";
+    else watched_string = (char *) "No";
 
     DEB(cout << series_name << endl;
-    cout << series_last_ep << endl;
-    cout << series_num_ep << endl;
-    cout << series_num_seas << endl;
-    cout << series_year << endl;
-    cout << genre_string << endl;
-    cout << status_string << endl;
-    cout << watched_string << endl;
-    cout << "**********" << endl);
+                cout << series_last_ep << endl;
+                cout << series_num_ep << endl;
+                cout << series_num_seas << endl;
+                cout << series_year << endl;
+                cout << genre_string << endl;
+                cout << status_string << endl;
+                cout << watched_string << endl;
+                cout << "**********" << endl);
 
-    series *s = new series;
-    s = data_to_struct(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string,
-                               status_string, watched_string);
+    if (series_num_ep == NULL || series_num_seas == NULL ||
+        series_year == NULL) {    /*Se i dati sono errati carico finestra di errore*/
+        error_ins_data();
+        return s;
+    } else {
+        s = data_to_struct(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string,
+                           status_string, watched_string);
 
-    DEB(cout << "test contenuto s->name in grid_to_struct dopo data_to struct: " << s->name << endl);
+        DEB(cout << "test contenuto s->name in grid_to_struct dopo data_to struct: " << s->name << endl);
 
-    return s;
+        return s;
+    }
 }
+
 /**
  * Funzione che esegue operazioni base all'avvio dell'applicazione.
  * Separata dal main per ridurre complessità dipendenze viene utilizzata per caricare l'ultimo file su cui stava lavorando
  * @return Void
  */
-void default_on_startup(){
+void default_on_startup() {
     char fname[256];
-    read_defaultfn(fname);
+    read_defaultfn(fname);  /*Chiamo funzione per leggere da default.conf*/
     open_file(fname, GTK_LIST_STORE(gtk_builder_get_object(builder, "list_series")));
 }
+
 /**
  * Funzione che apre un file tramite il nome passato
  * @param[in] fname Nome assoluto del file
  * @param[in] ListStore gtk_list_store in cui salvare i dati letti
  * @return Ritorna vero se la lettura è andata a buon fine falso se non è stato possibile aprire file
  */
-bool open_file(const char* fname, GtkListStore *listStore){
-    if(!load(l_series, fname)){
+bool open_file(const char *fname, GtkListStore *listStore) {
+    if (!load(l_series, fname)) { /*Verifico apertura*/
         return false;
     };
-    g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);
+    g_slist_foreach(l_series, (GFunc) refresh_treeview, (gpointer) listStore);  /*Aggiorno lista UI*/
     return true;
 }
 
+/**
+ * Carica la finestra di errore in caso di dati errati
+ */
+void error_ins_data() {
+    gchar *objects[] = {(gchar *) "w_error_ins_data", NULL};
+    gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
+    gtk_builder_connect_signals(builder, NULL);
+}

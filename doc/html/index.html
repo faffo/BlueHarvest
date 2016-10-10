@@ -65,7 +65,25 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Programma gestionale di serie tv. Il programma consente di aggiungere modificare e cancellare e ordinare una lista di serie tv catalogate secondo varie caratteristiche (nome, anno, numero episodi, genere, numero stagioni) oltre che segnarle come viste o concluse La lista così prodotta può poi essere salvata e aperta in seguito.</p>
-<dl class="section author"><dt>Autore</dt><dd>Daniele Ruffini </dd></dl>
+<p>Il programma è suddiviso in 4 moduli.</p>
+<ul>
+<li><a class="el" href="gtkfun_8cc.html" title="file contenente funzioni volte al funzionamento della GUI in gtk. ">gtkfun.cc</a> Si occupa di effettuare modifiche, letture, operazioni dall'interfaccia grafica. <br />
+ E' quindi per la maggior parte una collezione di funzioni ausiliarie per mettere in collegamento UI e programma. <br />
+ <br />
+</li>
+<li><a class="el" href="handlers_8cc.html" title="file contenente gli handlers per la cattura dei segnali dalla GUI in gtk. ">handlers.cc</a> Si occupa di creare tutte le funzioni adibite alla cattura dei segnali inviati dalla UI (handlers per l'appunto) <br />
+ Contiene quindi poche operazioni dirette sui dati e si serve spesso di <a class="el" href="gtkfun_8cc.html" title="file contenente funzioni volte al funzionamento della GUI in gtk. ">gtkfun.cc</a> <br />
+ <br />
+</li>
+<li><a class="el" href="loadsave_8cc.html" title="file contenente le funzioni collegate alle operazioni di apertura/salvataggio su file esterno...">loadsave.cc</a> Fornisce le funzioni necessarie al salvataggio caricamento dei dati su file. <br />
+ <br />
+</li>
+<li><a class="el" href="manipulation_8cc.html" title="file contenente le funzioni di manipolazione dati. ">manipulation.cc</a> Offre praticamente tutte le funzioni di modifica dei dati. Conversioni, confronti, ordinamenti e qualsiasi altra <br />
+ funzione direttamente responsabile dell'utilizzo dei dati. Il "cuore pulsante" del programma. <br />
+ <br />
+ <dl class="section author"><dt>Autore</dt><dd>Daniele Ruffini </dd></dl>
+</li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
