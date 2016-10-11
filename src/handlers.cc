@@ -125,7 +125,7 @@ extern "C" void handler_search_name(GtkButton *button, gpointer pname) {
     g_slist_foreach(l_found, (GFunc) refresh_treeview, listFound);  /*Visualizzo risultati*/
     //DEB(g_slist_foreach(l_series, (GFunc) refresh_treeview, listSeries));
 
-    g_slist_free(l_found);  /*Libero memoria occupata da l_found*/
+    g_slist_free(l_found); /*Libero memoria occupata da l_found*/
     l_found = NULL;
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
@@ -151,7 +151,7 @@ extern "C" void handler_search_genre(GtkButton *button, gpointer pgenre) {
     g_slist_foreach(l_found, (GFunc) refresh_treeview, listFound);
     //DEB(g_slist_foreach(l_series, (GFunc) refresh_treeview, listSeries)); /*Visualizzo risultati ricerca*/
 
-    g_slist_free(l_found);      /*Libero memoria occupata da l_found*/
+    g_slist_free(l_found); /*Libero memoria occupata da l_found*/
     l_found = NULL;
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "s_header_name")));
@@ -421,8 +421,11 @@ extern "C" void handler_dialog_delete(GtkMenuItem *menuItem, gpointer dialog_del
 extern "C" void handler_new(GtkMenuItem *menuItem, gpointer pliststore) {
     GtkListStore *listStore = GTK_LIST_STORE(pliststore);
     //g_slist_foreach(l_series, (GFunc)g_free, NULL);
-    g_slist_free(l_series);
-    l_series = NULL;
+    //g_slist_free_full(l_series, g_free);
+    //g_slist_free(l_series);
+    //l_series = NULL;
+
+    l_series = free_list(l_series);
 
     gtk_list_store_clear(listStore);
 }

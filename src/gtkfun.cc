@@ -199,12 +199,27 @@ series *tw_to_struct(GtkTreeModel *model, GtkTreeIter *iter) {
  */
 series *grid_to_struct(GtkGrid *data_grid) {
     series *s = new series;
+    int i;
+    char c;
+    bool flag = false;
 
     GtkEntry *entry_series_name = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 0);
-    const gchararray series_name = (gchararray const) gtk_entry_get_text(entry_series_name);
+    gchararray series_name = (gchararray) gtk_entry_get_text(entry_series_name);
+    i = 0;
+    while (series_name[i]) {      /*controllo non ci siano spazi nel testo*/
+        c = series_name[i];
+        if (isspace(c)) flag = true;
+        i++;
+    }
     //last ep
     GtkEntry *entry_series_last_ep = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 1);
     const gchararray series_last_ep = (gchararray const) gtk_entry_get_text(entry_series_last_ep);
+    i = 0;
+    while (series_last_ep[i]) {   /*controllo non ci siano spazi nel testo*/
+        c = series_last_ep[i];
+        if (isspace(c)) flag = true;
+        i++;
+    }
     //numero ep
     GtkEntry *entry_series_num_ep = (GtkEntry *) gtk_grid_get_child_at(data_grid, 1, 2);
     const gchar *series_num_ep_string = gtk_entry_get_text(entry_series_num_ep);
@@ -263,6 +278,9 @@ series *grid_to_struct(GtkGrid *data_grid) {
         series_year == NULL) {    /*Se i dati sono errati carico finestra di errore*/
         error_ins_data();
         return s;
+    } else if (flag) {
+        error_ins_data_space();
+        return s;
     } else {
         s = data_to_struct(series_name, series_last_ep, series_num_ep, series_num_seas, series_year, genre_string,
                            status_string, watched_string);
@@ -303,6 +321,15 @@ bool open_file(const char *fname, GtkListStore *listStore) {
  */
 void error_ins_data() {
     gchar *objects[] = {(gchar *) "w_error_ins_data", NULL};
+    gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
+    gtk_builder_connect_signals(builder, NULL);
+}
+
+/**
+ * Carica la finestra di errore in caso di dati errati (nel controllo degli spazi
+ */
+void error_ins_data_space() {
+    gchar *objects[] = {(gchar *) "w_error_ins_data_space", NULL};
     gtk_builder_add_objects_from_file(builder, BUILDER_PATH_DIALOG, objects, NULL);
     gtk_builder_connect_signals(builder, NULL);
 }

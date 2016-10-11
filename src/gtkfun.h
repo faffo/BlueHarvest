@@ -25,3 +25,5 @@ void default_on_startup();
 bool open_file(const char *fname, GtkListStore *listStore);
 
 void error_ins_data();
+
+void error_ins_data_space();

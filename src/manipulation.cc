@@ -293,6 +293,24 @@ void s_data(series *serie, gpointer pdata) {
 }
 
 /**
+ * Funzione ausiliaria per il cancellamento della serie nella lista
+ * @param[in, ount] ps Gpointer passato da g_slist_free_full corrispondente alla serie nel nodo
+ */
+void free_series(gpointer ps) {
+    series *s = (series *) ps;
+    delete s;
+}
+
+/**
+ * Funzione ausiliaria che libera la memoria occupata da una lista
+ * @param[in, out] list Lista da liberare dalla memoria
+ */
+GSList *free_list(GSList *list) {
+    g_slist_free_full(list, free_series);
+    return NULL;
+}
+
+/**
  * Funzione per la copia di determinate serie cercate in una lista secondaria (l_found). Il criterio di ricerca è che la stringe di caratteri fornita
  * compaia all'interno del campo serie->name. case insensitive.
  * @param[in] serie La ::series in cui cercare una corrispondenza, passata da g_slist_foreach
@@ -300,6 +318,7 @@ void s_data(series *serie, gpointer pdata) {
  */
 void sname(series *serie, gpointer pname) {
     char *name = (char *) pname;    /*Stringa da ricercare*/
+
     DEB(cout << "name in sname: " << name << endl);
     if (strcasestr(serie->name, name)) {  /*Ricerco la stringa all'interno del nome (case insensitive)*/
         l_found = g_slist_append(l_found, (gpointer) serie);    /*Se trovata aggiungo series a l_found*/
@@ -382,3 +401,4 @@ void del_list(GSList *&list, GSList *tmp) {
     list = g_slist_remove_link(list, tmp);
     g_slist_free_1(tmp);
 }
+

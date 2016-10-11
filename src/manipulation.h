@@ -41,3 +41,7 @@ void edit(gpointer, gpointer);
 GSList *search_list(GSList *list, const char nome[]);
 
 void del_list(GSList *&list, GSList *tmp);
+
+GSList *free_list(GSList *list);
+
+void free_series(gpointer s);

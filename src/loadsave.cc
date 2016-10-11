@@ -55,6 +55,7 @@ bool save(GSList *l_series, const char f_name[]) {
     } else {
         ofstream df(DEFAULT_FNAME); /*Copio nel default.conf il nome del file appena salvato*/
         df << f_name;
+        df.close();
         DEB(g_slist_foreach(l_series, (GFunc) print, NULL));
         g_slist_foreach(l_series, (GFunc) save_series, (gpointer) &f);  /*Salvo il contenuto di l_series su fname*/
 
@@ -74,8 +75,12 @@ bool load(GSList *&l_series, const char f_name[]) {
     DEB(cout << "dentro load: " << f_name << endl);
     ifstream f(f_name); /*creo l'input file stream*/
     if (f.is_open()) {  /*Controllo riuscita dell'apertura*/
-        g_slist_free(l_series); /*Vuoto l_series*/
-        l_series = NULL;
+        //g_slist_free_full(l_series, g_free); /*Vuoto l_series*/
+        //l_series = NULL;
+        if (l_series != NULL) {
+            l_series = free_list(l_series);
+        }
+
         while (!f.eof()) {  /*Itero fino all'end of file e copio le varie parti contenuto nel file nella struttura*/
             series *s = new series;
             f >> s->name;
@@ -100,6 +105,8 @@ bool load(GSList *&l_series, const char f_name[]) {
         }
         ofstream df(DEFAULT_FNAME); /*Salvo nome file name nel default.conf*/
         df << f_name;
+        df.close();
+        f.close();  /*Chiudo file*/
         return true;
     } else {
         return false;
